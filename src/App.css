@@ -1,0 +1,171 @@
+@font-face {
+  font-family: JosefinSans;
+  src: url("./assets/Josefin_Sans/static/JosefinSans-Regular.ttf") format("TrueType");
+}
+
+@font-face {
+  font-family: JosefinSansSemiBold;
+  src: url("./assets/Josefin_Sans/static/JosefinSans-SemiBold.ttf") format("TrueType");
+}
+
+@font-face {
+  font-family: JosefinSansBold;
+  src: url("./assets/Josefin_Sans/static/JosefinSans-Bold.ttf") format("TrueType");
+}
+
+@font-face {
+  font-family: Aileron;
+  src: url("./assets/fonts/aileron/Aileron-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: AileronSemiBold;
+  src: url("./assets/fonts/aileron/Aileron-SemiBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: AileronBold;
+  src: url("./assets/fonts/aileron/Aileron-Bold.otf") format("opentype");
+}
+
+body {
+  margin: 0;
+  overflow: auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: JosefinSans;
+
+  --brand-blue: #4a8cf2;
+  --plain-white: #fff;
+  --light-blue: #bce0fd;
+  --sky-blue: #f1f9ff;
+}
+
+/*
+  src: url("./assets/Josefin_Sans/static/JosefinSans-Regular.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-SemiBold.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-Bold.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-Italic.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-Thin.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-Light.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-LightItalic.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-MediumItalic.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-ExtraLightItalic.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-Medium.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-BoldItalic.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-ThinItalic.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-ExtraLight.ttf") format("TrueType");
+  src: url("./assets/Josefin_Sans/static/JosefinSans-SemiBoldItalic.ttf") format("TrueType");
+
+
+*/
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ant-pagination.ant-table-pagination {
+  float: none;
+  max-width: fit-content;
+  margin: 16px auto;
+}
+
+.ant-input {
+  height: 38px;
+}
+
+.gx-app-sidebar .ant-menu-submenu-vertical > .ant-menu-submenu-title .ant-menu-submenu-arrow,
+.gx-app-sidebar .ant-menu-submenu-vertical-left > .ant-menu-submenu-title .ant-menu-submenu-arrow,
+.gx-app-sidebar .ant-menu-submenu-vertical-right > .ant-menu-submenu-title .ant-menu-submenu-arrow,
+.gx-app-sidebar .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow {
+  left: auto;
+  right: 16px;
+}
+
+.ant-form-item-label {
+  height: 35px;
+}
+
+/*.ant-btn-primary {
+  background-color: #4a8cf2 !important;
+}
+.ant-btn-primary:hover {
+  background-color: #4a8cf2 !important;
+}
+.ant-btn-primary:active {
+  background-color: #4a8cf2 !important;
+}
+.ant-btn-primary:focus {
+  background-color: #4a8cf2 !important;
+}
+
+.ant-btn-primary.disabled,
+.ant-btn-primary:disabled {
+  background-color: #4a8cf2 !important;
+}*/
+
+.ant-card {
+  border-radius: 8px !important;
+  border: none !important;
+}
+
+.swal2-styled:focus {
+  outline: 0;
+  box-shadow: none;
+}
+.ant-badge-dot {
+  background: #80bc33;
+}
+
+tr.ant-table-expanded-row,
+tr.ant-table-expanded-row:hover {
+  background-color: #fff;
+}
+
+tr.ant-table-expanded-row .ant-table-wrapper.ant-table-wrapper.ant-table-wrapper.ant-table-wrapper {
+  margin: 10px 10px 10px -30px;
+  background-color: #fafafa;
+  padding-bottom: 20px;
+  margin-left: -45px;
+}
