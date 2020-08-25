@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const instance: any = (token = "") =>
+const instance = (token = "") =>
   axios.create({
     validateStatus(status) {
       return status < 500; // Reject only if the status code is greater than or equal to 500
