@@ -1,3 +1,6 @@
+@import "./scss/style.scss";
+/* @import "../src/assets/css/bootstrap.min.css";
+@import "../src/assets/css/style.css"; */
 @font-face {
   font-family: JosefinSans;
   src: url("./assets/Josefin_Sans/static/JosefinSans-Regular.ttf") format("TrueType");
