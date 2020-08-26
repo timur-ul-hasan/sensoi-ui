@@ -1,6 +1,6 @@
 import queryString from "query-string";
 
-export function getQueryInAddressBar(location): any {
+export function getQueryInAddressBar(location) {
   const queryObject = queryString.parse(location.search);
   const queryObjectLowerCased = {};
   Object.keys(queryObject).forEach(key => {

@@ -14,7 +14,7 @@ export function authCheck() {
   };
 }
 
-export function authLogin(payload: any) {
+export function authLogin(payload) {
   return {
     type: AuthActionTypes.AUTH_LOGIN,
     payload,
@@ -30,7 +30,7 @@ export function userSignOut({ history }) {
   };
 }
 
-export function authRefreshToken(payload: any) {
+export function authRefreshToken(payload) {
   return {
     type: AuthActionTypes.AUTH_REFRESH_TOKEN,
     payload,

@@ -13,7 +13,7 @@ const profileTypes = {
   CUSTOMER: "customer",
 };
 
-function* signupCustomerHandler(action: any) {
+function* signupCustomerHandler(action) {
   const {
     name,
     email,
@@ -43,7 +43,7 @@ function* signupCustomerHandler(action: any) {
         payload: "CUSTOMER",
       });
     } else if (res.status === 422) {
-      const errors: any = Object.values(res.data.errors);
+      const errors = Object.values(res.data.errors);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -57,7 +57,7 @@ function* signupCustomerHandler(action: any) {
   }
 }
 
-function* signinHandler(action: any) {
+function* signinHandler(action) {
   const { type, username, password, history, setSubmitting } = action.payload;
   try {
     const res = yield call(signIn, {

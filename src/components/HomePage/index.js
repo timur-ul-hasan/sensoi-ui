@@ -4,60 +4,58 @@ import logo from "../../assets/images/logo.svg";
 import panel from "../../assets/images/page.svg";
 import pdf from "../../assets/images/pdf-icon.svg";
 import text from "../../assets/images/txt-icon.svg";
+
 class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    
-        document.title = "Home :: EBuild Pakistan";
-      
   }
   render() {
     return (
-      <div class="wrapper">
-        <div class="generic-body">
+      <div className="wrapper">
+        <div className="generic-body">
           <div>
             <header>
-              <div class="container header  main-container nopadding">
-                <nav class="navbar navbar-expand-md navbar-light nopadding">
-                  <a class="navbar-brand" href="/">
+              <div className="container header  main-container nopadding">
+                <nav className="navbar navbar-expand-md navbar-light nopadding">
+                  <a className="navbar-brand" href="/">
                     <img type="image" src={logo} alt="logo" height="" width=""></img>
                   </a>
                   <button
-                    class="navbar-toggler"
+                    className="navbar-toggler"
                     type="button"
                     data-toggle="collapse"
                     data-target="#collapsibleNavbar"
                   >
-                    <span class="navbar-toggler-icon"></span>
+                    <span className="navbar-toggler-icon"></span>
                   </button>
 
-                  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="nav navbar-nav nav-center">
-                      <li class="nav-item">
-                        <a href="/dashboard/" class="nav-link">
+                  <div className="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul className="nav navbar-nav nav-center">
+                      <li className="nav-item">
+                        <a href="/dashboard/" className="nav-link">
                           Product Details
                         </a>
                       </li>
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">
+                      <li className="nav-item">
+                        <a href="#" className="nav-link">
                           About
                         </a>
                       </li>
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">
+                      <li className="nav-item">
+                        <a href="#" className="nav-link">
                           Pricing
                         </a>
                       </li>
-                      <li class="nav-item">
-                        <a href="/login/" class="nav-link">
+                      <li className="nav-item">
+                        <a href="/login/" className="nav-link">
                           Login
                         </a>
                       </li>
                     </ul>
-                    <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
-                      <li class="dropdown order-1">
-                        <button type="button" class="download-btn btn">
+                    <ul className="nav navbar-nav flex-row justify-content-between ml-auto">
+                      <li className="dropdown order-1">
+                        <button type="button" className="download-btn btn">
                           Download SENSAI
                         </button>
                       </li>
@@ -66,22 +64,22 @@ class Homepage extends Component {
                 </nav>
               </div>
             </header>
-            <section class="main-container container">
-              <div class="row">
-                <div class="col-lg-10 col-md-10 ">
-                  <h2 class="title">Make research easier</h2>
-                  <p class="description">
+            <section className="main-container container">
+              <div className="row">
+                <div className="col-lg-10 col-md-10 ">
+                  <h2 className="title">Make research easier</h2>
+                  <p className="description">
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
                     tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
                     vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
                     no sea takimata sanctus est Lorem ipsum dolor sit.
                   </p>
-                  <div class="button-box">
-                    <button class="generic-btn white-btn">Buy now</button>
-                    <button class="generic-btn">learn more</button>
+                  <div className="button-box">
+                    <button className="generic-btn white-btn">Buy now</button>
+                    <button className="generic-btn">learn more</button>
                   </div>
                 </div>
-                <div class="col-lg-1 col-md-1 col-sm-3 icon-panel">
+                <div className="col-lg-1 col-md-1 col-sm-3 icon-panel">
                   <div>
                     <img src={pdf} />
                   </div>
@@ -92,37 +90,37 @@ class Homepage extends Component {
                     <img src={text} />
                   </div>
                 </div>
-                <div class="col-lg-1 col-md-1 col-sm-3 circle-panel">
-                  <div class="circle">
+                <div className="col-lg-1 col-md-1 col-sm-3 circle-panel">
+                  <div className="circle">
                     <span>
                       <span></span>
                     </span>
                   </div>
-                  <div class="circle">
+                  <div className="circle">
                     <span>
                       <span></span>
                     </span>
                   </div>
-                  <div class="circle noafter">
+                  <div className="circle noafter">
                     <span>
                       <span></span>
                     </span>
                   </div>
                 </div>
               </div>
-              <h2 class="middle-title">Four ways to help you research easier</h2>
-              <section class="row middle-banner">
-                <div class="col-sm-12 col-md-2 col-lg-1 nopadding">
+              <h2 className="middle-title">Four ways to help you research easier</h2>
+              <section className="row middle-banner">
+                <div className="col-sm-12 col-md-2 col-lg-1 nopadding">
                   <img src="/static/images/page.svg" />
                 </div>
-                <div class="col-sm-12 col-md-10 col-lg-8">
-                  <div class="row">
-                    <div class="col-lg-1 col-md-1  col-sm-1 number-list">01</div>
-                    <div class="col-lg-11 col-md-11 col-sm-12">
-                      <p class="research-description">
+                <div className="col-sm-12 col-md-10 col-lg-8">
+                  <div className="row">
+                    <div className="col-lg-1 col-md-1  col-sm-1 number-list">01</div>
+                    <div className="col-lg-11 col-md-11 col-sm-12">
+                      <p className="research-description">
                         Are your PDFs littered across your desk or PC?
                       </p>
-                      <p class="light-txt">
+                      <p className="light-txt">
                         Sensai keeps all your PDFs secure and makes them instantly accessible and
                         searchable across all your devices. Automatic identification, tagging and
                         categorization of your PDFs means you never have to go hunting for that
@@ -132,40 +130,40 @@ class Homepage extends Component {
                   </div>
                 </div>
               </section>
-              <section class="row middle-banner banner-details">
-                <div class="col-lg-1"></div>
-                <div class="col-sm-12 col-md-8 col-lg-8">
-                  <div class="row banner-details">
-                    <div class="text-right  col-sm-12 col-md-11 col-lg-11  pr40">
-                      <p class="research-description">
+              <section className="row middle-banner banner-details">
+                <div className="col-lg-1"></div>
+                <div className="col-sm-12 col-md-8 col-lg-8">
+                  <div className="row banner-details">
+                    <div className="text-right  col-sm-12 col-md-11 col-lg-11  pr40">
+                      <p className="research-description">
                         Are your PDFs littered across your desk or PC?
                       </p>
-                      <p class="light-txt details-txt">
+                      <p className="light-txt details-txt">
                         Sensai keeps all your PDFs secure and makes them instantly accessible and
                         searchable across all your devices. Automatic identification, tagging and
                         categorization of your PDFs means you never have to go hunting for that
                         missing paper again.
                       </p>
                     </div>
-                    <div class="col-lg-1 col-md-1  col-sm-1  number-list number2">02</div>
+                    <div className="col-lg-1 col-md-1  col-sm-1  number-list number2">02</div>
                   </div>
                 </div>
-                <div class="col-sm-12 col-md-2 col-lg-1 nopadding ml5">
+                <div className="col-sm-12 col-md-2 col-lg-1 nopadding ml5">
                   <img src="/static/images/bookmark.svg" />
                 </div>
               </section>
-              <section class="row middle-banner">
-                <div class="col-sm-12 col-md-2 col-lg-1 nopadding">
+              <section className="row middle-banner">
+                <div className="col-sm-12 col-md-2 col-lg-1 nopadding">
                   <img src="/static/images/loop.svg" />
                 </div>
-                <div class="col-sm-12 col-md-10 col-lg-8">
-                  <div class="row">
-                    <div class="col-lg-1 col-md-1  col-sm-1 number-list">03</div>
-                    <div class="col-lg-11 col-md-11 col-sm-12">
-                      <p class="research-description">
+                <div className="col-sm-12 col-md-10 col-lg-8">
+                  <div className="row">
+                    <div className="col-lg-1 col-md-1  col-sm-1 number-list">03</div>
+                    <div className="col-lg-11 col-md-11 col-sm-12">
+                      <p className="research-description">
                         Are your PDFs littered across your desk or PC?
                       </p>
-                      <p class="light-txt">
+                      <p className="light-txt">
                         Sensai keeps all your PDFs secure and makes them instantly accessible and
                         searchable across all your devices. Automatic identification, tagging and
                         categorization of your PDFs means you never have to go hunting for that
@@ -175,78 +173,78 @@ class Homepage extends Component {
                   </div>
                 </div>
               </section>
-              <section class="row middle-banner ok ">
-                <div class="col-lg-1"></div>
-                <div class="col-sm-12 col-md-8 col-lg-8">
-                  <div class="row ok">
-                    <div class="text-right  col-sm-12 col-md-11 col-lg-11 pr40">
-                      <p class="research-description">
+              <section className="row middle-banner ok ">
+                <div className="col-lg-1"></div>
+                <div className="col-sm-12 col-md-8 col-lg-8">
+                  <div className="row ok">
+                    <div className="text-right  col-sm-12 col-md-11 col-lg-11 pr40">
+                      <p className="research-description">
                         Are your PDFs littered across your desk or PC?
                       </p>
-                      <p class="details-txt light-txt">
+                      <p className="details-txt light-txt">
                         Sensai keeps all your PDFs secure and makes them instantly accessible and
                         searchable across all your devices. Automatic identification, tagging and
                         categorization of your PDFs means you never have to go hunting for that
                         missing paper again.
                       </p>
                     </div>
-                    <div class="col-lg-1 col-md-1  col-sm-1  number-list number2">04</div>
+                    <div className="col-lg-1 col-md-1  col-sm-1  number-list number2">04</div>
                   </div>
                 </div>
-                <div class="col-sm-12 col-md-2 col-lg-1 nopadding">
+                <div className="col-sm-12 col-md-2 col-lg-1 nopadding">
                   <img src="/static/images/page.svg" />
                 </div>
               </section>
-              <section class="slider-section">
-                <div class="row">
-                  <div class="col-lg-7">
-                    <div id="demo" class="carousel slide" data-ride="carousel">
-                      <ul class="carousel-indicators">
-                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <section className="slider-section">
+                <div className="row">
+                  <div className="col-lg-7">
+                    <div id="demo" className="carousel slide" data-ride="carousel">
+                      <ul className="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" className="active"></li>
                         <li data-target="#demo" data-slide-to="1"></li>
                         <li data-target="#demo" data-slide-to="2"></li>
                         <li data-target="#demo" data-slide-to="3"></li>
                       </ul>
-                      <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
+                      <a className="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span className="carousel-control-prev-icon"></span>
                       </a>
-                      <div class="carousel-inner">
-                        <div class="carousel-item row active">
-                          <div class="row">
-                            <div class="col-lg-12 slider-box">
+                      <div className="carousel-inner">
+                        <div className="carousel-item row active">
+                          <div className="row">
+                            <div className="col-lg-12 slider-box">
                               <img src="/static/images/slider-item.png" alt="slider-item"></img>
                             </div>
                           </div>
                         </div>
-                        <div class="carousel-item row">
-                          <div class="row">
-                            <div class="col-lg-12 slider-box">
+                        <div className="carousel-item row">
+                          <div className="row">
+                            <div className="col-lg-12 slider-box">
                               <img src="/static/images/slider-item.png" alt="slider-item"></img>
                             </div>
                           </div>
                         </div>
-                        <div class="carousel-item row">
-                          <div class="row">
-                            <div class="col-lg-12 slider-box">
+                        <div className="carousel-item row">
+                          <div className="row">
+                            <div className="col-lg-12 slider-box">
                               <img src="/static/images/slider-item.png" alt="slider-item"></img>
                             </div>
                           </div>
                         </div>
                       </div>
 
-                      <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
+                      <a className="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span className="carousel-control-prev-icon"></span>
                       </a>
-                      <a class="carousel-control-next" href="#demo" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
+                      <a className="carousel-control-next" href="#demo" data-slide="next">
+                        <span className="carousel-control-next-icon"></span>
                       </a>
                     </div>
                   </div>
-                  <div class="col-lg-4 right-banner">
+                  <div className="col-lg-4 right-banner">
                     <div>
                       <button>Download SENSAI</button>
                     </div>
-                    <div class="empty-space"></div>
+                    <div className="empty-space"></div>
                     <h2>Lorem ipsum dolor</h2>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vulputate auctor
@@ -258,10 +256,10 @@ class Homepage extends Component {
               </section>
 
               <section>
-                <div class="white-banner"></div>
-                <div class="company-description">
-                  <h2 class="text-center">Some Motivation Text to join company</h2>
-                  <p class="text-center">
+                <div className="white-banner"></div>
+                <div className="company-description">
+                  <h2 className="text-center">Some Motivation Text to join company</h2>
+                  <p className="text-center">
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
                     tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
                     vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
