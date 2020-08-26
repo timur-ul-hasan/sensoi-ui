@@ -11,7 +11,7 @@ export default ({ match }) => {
   return (
     <>
       <Switch>
-        <Route path={`${match.url}/signin`} component={Signin} />
+        <Route path={`${match.url}/login`} component={Signin} />
         <Route path={`${match.url}/signup`} component={Signup} />
       </Switch>
     </>

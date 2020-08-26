@@ -1,123 +1,57 @@
 import { put, call, takeLeading, select, take, delay } from "redux-saga/effects";
-import Swal from "sweetalert2";
-import { getIsAuthenticated, getAccessToken } from "./selectors";
+import ACTIONS from "./actions/type/auth";
 
-import AuthActionTypes from "./actions/type/auth";
-import LoadingActionTypes from "./actions/type/loading";
+import { login, signUp } from "./api";
 
-import { signIn, customerSignUp } from "./api";
-
-const profileTypes = {
-  SERVICEPROVIDER: "service-providers",
-  SUPPLIER: "supplier",
-  CUSTOMER: "customer",
-};
-
-function* signupCustomerHandler(action) {
-  const {
-    name,
-    email,
-    password,
-    passwordConfirmation,
-    phone,
-    setSubmitting,
-    history,
-    setComplete,
-  } = action.payload;
+function* signUpHandler(action) {
+  const { name, email, password, passwordConfirmation } = action.payload;
   try {
-    const res = yield call(customerSignUp, {
+    const res = yield call(signUp, {
       name,
       email,
       password,
       passwordConfirmation,
-      phone,
     });
     if (res.status === 200) {
-      setComplete(true);
       yield put({
-        type: AuthActionTypes.AUTH_LOGIN,
+        type: ACTIONS.SIGN_UP_SUCCESS,
         payload: res.data,
       });
-      yield put({
-        type: AuthActionTypes.AUTH_USER_TYPE,
-        payload: "CUSTOMER",
-      });
-    } else if (res.status === 422) {
-      const errors = Object.values(res.data.errors);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        html: [].concat(...errors).join(" <br/> "),
-      });
+    } else {
     }
   } catch (error) {
-    console.error(error);
   } finally {
-    setSubmitting(false);
   }
 }
 
-function* signinHandler(action) {
-  const { type, username, password, history, setSubmitting } = action.payload;
+function* loginHandler(action) {
+  const { email, password } = action.payload;
   try {
-    const res = yield call(signIn, {
-      type,
-      username,
+    const res = yield call(login, {
+      email,
       password,
     });
 
     if (res.status === 200) {
-      history.push("/");
-    } else if (res.status === 422 || res.status === 401) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        html: "Invalid Credentials.",
+      yield put({
+        type: ACTIONS.SIGN_IN_SUCCESS,
+        payload: res.data,
       });
-    } else if (res.status === 403) {
+    } else {
     }
   } catch (error) {
     console.error(error);
   } finally {
-    setSubmitting(false);
+    // setSubmitting(false);
   }
 }
 
-function* signUpCustomerListener() {
-  yield takeLeading(AuthActionTypes.REQUEST_SIGNUP, signupCustomerHandler);
+function* loginListener() {
+  yield takeLeading(ACTIONS.SIGN_IN_REQUEST, loginHandler);
 }
 
-function* signInEmailListener() {
-  yield takeLeading(AuthActionTypes.REQUEST_SIGNIN, signinHandler);
+function* signUpListener() {
+  yield takeLeading(ACTIONS.SIGN_IN_REQUEST, signUpHandler);
 }
 
-function* refreshListener() {
-  while (true) {
-    yield take("*");
-    const isAuthenticated = yield select(getIsAuthenticated);
-    if (isAuthenticated) {
-      const accessToken = yield select(getAccessToken);
-      if (accessToken.expiryTime - 500000 < Date.now()) {
-        yield put({
-          type: AuthActionTypes.AUTH_REFRESH_TOKEN,
-        });
-      }
-    }
-  }
-}
-function* delayListener() {
-  while (true) {
-    yield delay(30 * 60000);
-    const isAuthenticated = yield select(getIsAuthenticated);
-    if (isAuthenticated) {
-      const accessToken = yield select(getAccessToken);
-      if (accessToken.expiryTime - 500000 < Date.now()) {
-        yield put({
-          type: AuthActionTypes.AUTH_REFRESH_TOKEN,
-        });
-      }
-    }
-  }
-}
-
-export default [signUpCustomerListener, signInEmailListener];
+export default [loginListener, signUpListener];
