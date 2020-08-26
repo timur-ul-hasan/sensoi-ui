@@ -17,7 +17,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   rules: {
-    "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx"] }],
+    "react/jsx-filename-extension": [1, { extensions: [".ts", ".tsx", ".js", ".jsx"] }],
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/prop-types": 0,
