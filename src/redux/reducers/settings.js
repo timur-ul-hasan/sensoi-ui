@@ -1,6 +1,3 @@
-import AuthActionTypes from "../../routes/auth/actions/type/auth";
-import enLang from "../../lngProvider/entries/en-US";
-
 const initialState = {
   themeType: "THEME_TYPE_LITE",
   width: window.innerWidth,
@@ -17,4 +14,4 @@ const initialState = {
   themeColor: "THEME_COLOR",
 };
 
-export default (state = initialState, action: any) => state;
+export default (state = initialState, action) => state;
