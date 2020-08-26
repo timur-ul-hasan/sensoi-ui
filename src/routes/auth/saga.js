@@ -51,7 +51,7 @@ function* loginListener() {
 }
 
 function* signUpListener() {
-  yield takeLeading(ACTIONS.SIGN_IN_REQUEST, signUpHandler);
+  yield takeLeading(ACTIONS.SIGN_UP_REQUEST, signUpHandler);
 }
 
 export default [loginListener, signUpListener];
