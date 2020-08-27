@@ -1,62 +1,59 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Formik, Field, Form } from "formik";
+import { useDispatch } from "react-redux";
+import { login } from "../actions";
 
 export default () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="generic-body-login">
       <div className="modal" id="login">
         <div className="modal-dialog generic-modal">
           <div className="modal-content">
             <div className="modal-body">
-              <form method="POST">
-                <div className="form-group">
-                  <input
-                    type="email"
-                    name="email"
-                    className="form-control"
-                    aria-describedby="emailHelp"
-                    placeholder="Email Address"
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="password"
-                    name="password"
-                    className="form-control"
-                    placeholder="Password"
-                  />
-                  <img
-                    src="{% static 'images/eye-icon.svg'%}"
-                    alt="icon"
-                    height=""
-                    width="24"
-                    className="eye-icon"
-                  />
-                </div>
-                <div className="form-check">
+              <Formik
+                initialValues={{
+                  email: "",
+                  password: "",
+                }}
+                onSubmit={values => {
+                  dispatch(login(values));
+                }}
+              >
+                <Form>
                   <div className="form-group">
-                    <input type="checkbox" id="check1" />
-                    <label htmlFor="check1">keep me logged in</label>
-                    <a href="{% url 'reset_password' %}" className="forgot-psw">
-                      Forgot Password ?
-                    </a>
+                    <Field
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="form-control"
+                      aria-describedby="emailHelp"
+                      placeholder="Email Address"
+                    />
                   </div>
-                </div>
-                <div className="btn-decoration">
-                  {" "}
-                  <span>Login</span>{" "}
-                </div>
-                <button type="submit" className="btn btn-primary generic-btn">
-                  Login
-                </button>
-                <div className="sign-up-details">
-                  <a href="{% url 'sign_up' %}" className="nav-link signup-btn">
-                    {" "}
-                    Sign Up
-                  </a>{" "}
-                  <span> if you don't have an account.</span>
-                </div>
-              </form>
+                  <label htmlFor="lastName">Last Name</label>
+                  <div className="form-group">
+                    <Field
+                      id="password"
+                      type="password"
+                      name="password"
+                      className="form-control"
+                      placeholder="Password"
+                    />
+                  </div>
+                  <div className="sign-up-details">
+                    <button
+                      type="submit"
+                      className="nav-link signup-btn btn btn-primary generic-btn"
+                    >
+                      Login
+                    </button>
+                    {/* <span> if you don&apos;t have an account.</span> */}
+                  </div>
+                </Form>
+              </Formik>
             </div>
           </div>
         </div>

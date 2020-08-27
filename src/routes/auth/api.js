@@ -1,32 +1,26 @@
 import client, { methods } from "../../api/axios";
 import { baseURL } from "../../config";
 
-const AUTH_URL = `${baseURL}/api/auth/`;
+const AUTH_URL = `${baseURL}/accounts/`;
 
-const profileTypes = {
-  SERVICEPROVIDER: "service-providers/",
-  SUPPLIER: "suppliers/",
-  CUSTOMER: "customers/",
-};
-
-const signIn = async ({ type, username, password }) =>
+export const login = async ({ email, password }) =>
   await client()({
-    url: `${AUTH_URL}${profileTypes[type]}login`,
+    url: `${AUTH_URL}token/`,
     data: {
-      username,
+      email,
       password,
     },
     method: methods.POST,
   });
 
-const customerSignUp = async ({ name, phone, email, password, passwordConfirmation }) =>
+export const signUp = async ({ email, name, password, passwordConfirmation }) =>
   await client()({
-    url: `${AUTH_URL}customers/signup`,
+    url: `${AUTH_URL}register/`,
     method: methods.POST,
     data: {
-      name,
-      phone,
+      email,
+      full_name: name,
+      password1: password,
+      password2: passwordConfirmation,
     },
   });
-
-export { customerSignUp, signIn };
