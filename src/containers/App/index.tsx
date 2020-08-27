@@ -10,13 +10,15 @@ import {
 } from "react-router-dom";
 
 import Auth from "../../routes/auth";
-import Dashboard from "../../routes/home/index";
+import Home from "../../routes/home/index";
+import DashBoard from "../../routes/dashboard/index";
 const App = props => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/auth" component={Auth} />
-        <Route path="/" component={Dashboard} />
+        <Route path="/home" component={Home} />
+        <Route path="/dashboard" component={DashBoard} />
       </Switch>
     </BrowserRouter>
   );

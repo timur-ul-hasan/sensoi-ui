@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Row, Col, Button } from "reactstrap";
 import logo from "../../assets/images/logo.svg";
 import panel from "../../assets/images/page.svg";
 import pdf from "../../assets/images/pdf-icon.svg";
