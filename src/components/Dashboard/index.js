@@ -1471,6 +1471,7 @@ class Dashboard extends Component {
             <iframe class="iframe-preview"></iframe>
           </div>
         </div>
+        {/* </div> */}
         <div class="modal" id="print">
           <div class="modal-dialog upload-inner nopadding">
             <div class="modal-content nopadding">
@@ -1508,8 +1509,6 @@ class Dashboard extends Component {
                           <select
                             name="potencial"
                             id="potencia2"
-                            class="custom-select sources"
-                            placeholder="A4 (210x297mm)"
                           >
                             <option value="A">A</option>
                             <option value="B">B</option>
