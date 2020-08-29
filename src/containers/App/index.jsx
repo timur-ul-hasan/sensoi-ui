@@ -15,7 +15,8 @@ const App = props => {
   return (
     <BrowserRouter>
       <Switch>
-        {/* <Route path="/sigin" component={Auth} /> */}
+        {/* </
+        Route path="/sigin" component={Auth} /> */}
         <Route path="/home" component={Home} />
         <Route path="/dashboard" component={DashBoard} />
       </Switch>
