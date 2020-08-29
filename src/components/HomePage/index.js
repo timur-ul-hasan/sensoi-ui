@@ -3,7 +3,10 @@ import logo from "../../assets/images/logo.svg";
 import panel from "../../assets/images/page.svg";
 import pdf from "../../assets/images/pdf-icon.svg";
 import text from "../../assets/images/txt-icon.svg";
-
+import slider from "../../assets/images/slider-item.png";
+import page from "../../assets/images/page.svg";
+import loop from "../../assets/images/loop.svg";
+import bookmark from "../../assets/images/bookmark.svg";
 class Homepage extends Component {
   constructor(props) {
     super(props);
@@ -111,7 +114,7 @@ class Homepage extends Component {
               <h2 className="middle-title">Four ways to help you research easier</h2>
               <section className="row middle-banner">
                 <div className="col-sm-12 col-md-2 col-lg-1 nopadding">
-                  <img src="/static/images/page.svg" />
+                  <img src={page} />
                 </div>
                 <div className="col-sm-12 col-md-10 col-lg-8">
                   <div className="row">
@@ -149,12 +152,12 @@ class Homepage extends Component {
                   </div>
                 </div>
                 <div className="col-sm-12 col-md-2 col-lg-1 nopadding ml5">
-                  <img src="/static/images/bookmark.svg" />
+                  <img src={bookmark} />
                 </div>
               </section>
               <section className="row middle-banner">
                 <div className="col-sm-12 col-md-2 col-lg-1 nopadding">
-                  <img src="/static/images/loop.svg" />
+                  <img src={loop} />
                 </div>
                 <div className="col-sm-12 col-md-10 col-lg-8">
                   <div className="row">
@@ -192,7 +195,7 @@ class Homepage extends Component {
                   </div>
                 </div>
                 <div className="col-sm-12 col-md-2 col-lg-1 nopadding">
-                  <img src="/static/images/page.svg" />
+                  <img src={page} />
                 </div>
               </section>
               <section className="slider-section">
@@ -212,21 +215,21 @@ class Homepage extends Component {
                         <div className="carousel-item row active">
                           <div className="row">
                             <div className="col-lg-12 slider-box">
-                              <img src="/static/images/slider-item.png" alt="slider-item"></img>
+                              <img src={slider} alt="slider-item"></img>
                             </div>
                           </div>
                         </div>
                         <div className="carousel-item row">
                           <div className="row">
                             <div className="col-lg-12 slider-box">
-                              <img src="/static/images/slider-item.png" alt="slider-item"></img>
+                              <img src={slider} alt="slider-item"></img>
                             </div>
                           </div>
                         </div>
                         <div className="carousel-item row">
                           <div className="row">
                             <div className="col-lg-12 slider-box">
-                              <img src="/static/images/slider-item.png" alt="slider-item"></img>
+                              <img src={slider} alt="slider-item"></img>
                             </div>
                           </div>
                         </div>

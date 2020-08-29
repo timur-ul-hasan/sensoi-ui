@@ -1471,7 +1471,6 @@ class Dashboard extends Component {
             <iframe class="iframe-preview"></iframe>
           </div>
         </div>
-        {/* </div> */}
         <div class="modal" id="print">
           <div class="modal-dialog upload-inner nopadding">
             <div class="modal-content nopadding">
