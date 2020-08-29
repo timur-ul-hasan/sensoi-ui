@@ -1,10 +1,10 @@
 import React, { memo, useEffect } from "react";
 import Home from "../../routes/home/index";
-import DashBoard from "../../routes/dashboard";
+import DashBoard from "../../routes/dashboard/index";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
-// import { Signin, Signup } from "../../routes/auth/index";
-// import Dashboard from "../../routes/home/index";
+// import { Signin, Signup } from "../../routes/auth";
+import Dashboard from "../../routes/home/index";
 
 const App = props => {
   return (
@@ -14,7 +14,7 @@ const App = props => {
         <Route path="/dashboard" component={DashBoard} />
         {/* <Route path="/login" exact component={Signin} /> */}
         {/* <Route path="/signup" exact component={Signup} /> */}
-        {/* <Route path="/" component={Dashboard} /> */}
+        <Route path="/" component={Dashboard} />
       </Switch>
     </BrowserRouter>
   );
