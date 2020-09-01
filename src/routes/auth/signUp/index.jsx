@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import styled from "styled-components";
 import { Formik, Field, Form } from "formik";
 import { useDispatch } from "react-redux";
 import { signUp } from "../actions";
-
+import signupReducer from "./reducer";
 export default () => {
   const dispatch = useDispatch();
-
+  // const [state, dispatch] = useReducer(signupReducer);
+  // console.log(state, "form signup ");
   return (
     <div className="generic-body-login">
       <div className="modal" id="login">
@@ -16,7 +17,9 @@ export default () => {
               <Formik
                 initialValues={{
                   email: "",
-                  password: "",
+                  password2: "",
+                  full_name: "",
+                  password1: "",
                 }}
                 onSubmit={values => {
                   dispatch(signUp(values));
@@ -26,9 +29,9 @@ export default () => {
                   <div className="form-group">
                     <label htmlFor="lastName">Full Name</label>
                     <Field
-                      type="name"
-                      id="name"
-                      name="name"
+                      type="text"
+                      id="full_name"
+                      name="full_name"
                       className="form-control"
                       aria-describedby="emailHelp"
                       placeholder="Name"
@@ -50,9 +53,9 @@ export default () => {
                   <div className="form-group">
                     <label htmlFor="lastName">Password</label>
                     <Field
-                      id="password"
+                      id="password1"
                       type="password"
-                      name="password"
+                      name="password1"
                       className="form-control"
                       placeholder="Password"
                     />
@@ -61,9 +64,9 @@ export default () => {
                   <div className="form-group">
                     <label htmlFor="lastName">Password Confirmation</label>
                     <Field
-                      id="passwordConfirmation"
-                      type="passwordConfirmation"
-                      name="passwordConfirmation"
+                      id="password2"
+                      type="password"
+                      name="password2"
                       className="form-control"
                       placeholder="Password Confirmation"
                     />

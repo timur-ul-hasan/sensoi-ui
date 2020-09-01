@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import styled from "styled-components";
 import { Formik, Field, Form } from "formik";
 import { useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { login } from "../actions";
-
+import loginReducer from "../reducer";
 export default () => {
   const dispatch = useDispatch();
+  // const [state, dispatch] = useReducer(loginReducer);
+  // console.log(state, "form login ");
 
   return (
     <div className="generic-body-login">
@@ -50,8 +53,12 @@ export default () => {
                     >
                       Login
                     </button>
-                    {/* <span> if you don&apos;t have an account.</span> */}
                   </div>
+                  {/* {error && (
+          <Alert severity="error" onClick={() => setError(null)}>
+          {props.error || error}
+        </Alert>
+      )} */}
                 </Form>
               </Formik>
             </div>

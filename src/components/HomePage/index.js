@@ -1,15 +1,27 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import logo from "../../assets/images/logo.svg";
 import panel from "../../assets/images/page.svg";
 import pdf from "../../assets/images/pdf-icon.svg";
 import text from "../../assets/images/txt-icon.svg";
-
+import slider from "../../assets/images/slider-item.png";
+import page from "../../assets/images/page.svg";
+import loop from "../../assets/images/loop.svg";
+import bookmark from "../../assets/images/bookmark.svg";
 class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.auth && nextProps.auth.user) {
+      this.setState({ user: nextProps.auth.user });
+    }
+    if (nextProps.alerts && nextProps.alerts.alerts) {
+      this.setState({ alert: nextProps.alerts.alerts });
+    }
+  }
   render() {
     return (
       <div className="wrapper">
@@ -111,7 +123,7 @@ class Homepage extends Component {
               <h2 className="middle-title">Four ways to help you research easier</h2>
               <section className="row middle-banner">
                 <div className="col-sm-12 col-md-2 col-lg-1 nopadding">
-                  <img src="/static/images/page.svg" />
+                  <img src={page} />
                 </div>
                 <div className="col-sm-12 col-md-10 col-lg-8">
                   <div className="row">
@@ -149,12 +161,12 @@ class Homepage extends Component {
                   </div>
                 </div>
                 <div className="col-sm-12 col-md-2 col-lg-1 nopadding ml5">
-                  <img src="/static/images/bookmark.svg" />
+                  <img src={bookmark} />
                 </div>
               </section>
               <section className="row middle-banner">
                 <div className="col-sm-12 col-md-2 col-lg-1 nopadding">
-                  <img src="/static/images/loop.svg" />
+                  <img src={loop} />
                 </div>
                 <div className="col-sm-12 col-md-10 col-lg-8">
                   <div className="row">
@@ -192,7 +204,7 @@ class Homepage extends Component {
                   </div>
                 </div>
                 <div className="col-sm-12 col-md-2 col-lg-1 nopadding">
-                  <img src="/static/images/page.svg" />
+                  <img src={page} />
                 </div>
               </section>
               <section className="slider-section">
@@ -212,21 +224,21 @@ class Homepage extends Component {
                         <div className="carousel-item row active">
                           <div className="row">
                             <div className="col-lg-12 slider-box">
-                              <img src="/static/images/slider-item.png" alt="slider-item"></img>
+                              <img src={slider} alt="slider-item"></img>
                             </div>
                           </div>
                         </div>
                         <div className="carousel-item row">
                           <div className="row">
                             <div className="col-lg-12 slider-box">
-                              <img src="/static/images/slider-item.png" alt="slider-item"></img>
+                              <img src={slider} alt="slider-item"></img>
                             </div>
                           </div>
                         </div>
                         <div className="carousel-item row">
                           <div className="row">
                             <div className="col-lg-12 slider-box">
-                              <img src="/static/images/slider-item.png" alt="slider-item"></img>
+                              <img src={slider} alt="slider-item"></img>
                             </div>
                           </div>
                         </div>
@@ -277,5 +289,14 @@ class Homepage extends Component {
     );
   }
 }
+Homepage.propTypes = {
+  alerts: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
+};
 
-export default Homepage;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  alerts: state.alerts
+});
+export default connect(mapStateToProps)(Homepage);
+// export default ;
