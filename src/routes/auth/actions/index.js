@@ -16,7 +16,10 @@ export async function login(payload) {
   return {
     type: ACTIONS.SIGN_IN_REQUEST,
     payload: response.data.access,
+    
   };
+  
+  // window.location.href = "/home";
 }
 export const setCurrentUser = decoded => {
   return {

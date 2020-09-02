@@ -39,7 +39,7 @@ export default () => {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="lastName">Email</label>
+                    <label htmlFor="lastName">Email</label><span class="asteriskField">*</span>
                     <Field
                       type="email"
                       id="email"
@@ -51,7 +51,7 @@ export default () => {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="lastName">Password</label>
+                    <label htmlFor="lastName">Password</label><span class="asteriskField">*</span>
                     <Field
                       id="password1"
                       type="password"
@@ -59,6 +59,7 @@ export default () => {
                       className="form-control"
                       placeholder="Password"
                     />
+                     <small id="hint_id_password1" class="form-text text-muted">The password must be between 6 and 8 characters</small>
                   </div>
 
                   <div className="form-group">
@@ -71,8 +72,21 @@ export default () => {
                       placeholder="Password Confirmation"
                     />
                   </div>
+                     {/* Signup Footer */}
+                       <div class="form-check">
+                            <div class="form-group">
+                                <input type="checkbox" id="check" class="cagree" />
+                                <label for="check">I have accepted the Term and Conditions</label>
 
-                  <div className="sign-up-details">
+                            </div>
+                        </div>
+                        <div class="btn-decoration"><span>Sign up</span></div>
+                        <button type="submit" class="btn btn-primary generic-btn">Sign up</button>
+                        <div class="sign-up-details">
+                            <a href="/login/" class="nav-link login-btn"> Login</a> <span> if you already have an account.</span>
+                        </div>
+
+                  {/* <div className="sign-up-details">
                     <button
                       type="submit"
                       className="nav-link signup-btn btn btn-primary generic-btn"
@@ -80,7 +94,7 @@ export default () => {
                       Sign Up
                     </button>
                     {/* <span> if you don&apos;t have an account.</span> */}
-                  </div>
+                  {/* </div> */} 
                 </Form>
               </Formik>
             </div>
