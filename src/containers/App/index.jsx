@@ -11,7 +11,6 @@ import {
 import Auth from "../../routes/auth";
 import Home from "../../routes/home/index";
 import DashBoard from "../../routes/dashboard/index";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 import { Signin, Signup } from "../../routes/auth";
 import Dashboard from "../../routes/home/index";
