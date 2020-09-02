@@ -1,4 +1,14 @@
 import React, { memo, useEffect } from "react";
+import {
+  Route,
+  Switch,
+  useHistory,
+  BrowserRouter,
+  useLocation,
+  useRouteMatch,
+} from "react-router-dom";
+
+import Auth from "../../routes/auth";
 import Home from "../../routes/home/index";
 import DashBoard from "../../routes/dashboard/index";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
