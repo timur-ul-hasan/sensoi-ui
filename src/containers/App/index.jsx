@@ -4,7 +4,8 @@ import DashBoard from "../../routes/dashboard/index";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Signin, Signup } from "../../routes/auth";
+import  Signin from "../../routes/auth/signIn/index";
+import Signup from "../../routes/auth/signUp/index";
 import Dashboard from "../../routes/home/index";
 
 const App = props => {
