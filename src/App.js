@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import store from "./routes/auth/store";
 import setAuthToken from "../src/util/setAuthToken";
 import { setCurrentUser } from "./routes/auth/actions";
-// import config from "./config/dev_keys";
 import "./assets/css/bootstrap.min.css";
 import "./assets/css/font-awesome.min.css";
 import "./assets/css/style.css";

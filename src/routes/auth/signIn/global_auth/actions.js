@@ -34,7 +34,7 @@ export const loginUser = data => dispatch => {
     .post(url, data)
     .then(res => {
       console.log(res.data.access);
-      // const { data } = res.data;
+      const data  = res.data;
       const  token = res.data.access;
       localStorage.setItem("clientSecret", token);
       setAuthToken(token);

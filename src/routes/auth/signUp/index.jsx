@@ -27,7 +27,7 @@ export default () => {
               >
                 <Form>
                   <div className="form-group">
-                    <label htmlFor="lastName">Full Name</label>
+                    <label htmlFor="lastName">Full Name</label><span class="asteriskField">*</span>
                     <Field
                       type="text"
                       id="full_name"

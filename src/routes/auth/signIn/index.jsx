@@ -3,17 +3,17 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { loginUser } from "../signIn/global_auth/actions";
 import { Form, input, Alert } from "reactstrap";
+import validateLogin from "./validations";
+const initialState = {
+  email: "",
+  password: "",
+  errors: {},
+  alert: {},
+};
 class Login extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      email: "",
-      password: "",
-      errors: {},
-      alert: {},
-    };
-
+    this.state = initialState;
     document.title = "Login :: Sensoi-ui";
   }
 
@@ -23,13 +23,25 @@ class Login extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-
+    this.setState({ errors: {} });
     const data = {
       email: this.state.email.toString(),
       password: this.state.password.toString(),
     };
-    console.log(data);
-    this.props.loginUser(data);
+    
+   const { haserror, errors } = validateLogin(data);
+   if (haserror,errors) {
+      this.setState({ errors });
+      return;
+      } 
+      else {
+   this.setState(initialState);
+   this.props.loginUser(data);
+      }
+  // this.props.loginUser(data);
+  //     console.log(data);
+     
+    
   };
 
   // componentDidMount() {
@@ -62,12 +74,12 @@ class Login extends Component {
           <div className="modal-dialog generic-modal">
             <div className="modal-content">
               <div className="modal-body">
-                <Form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit}>
                   {this.state.alert && this.state.alert.msg && (
                     <Alert color={this.state.alert.type}>{this.state.alert.msg}</Alert>
                   )}
                   <div className="form-group">
-                    <label htmlFor="email">Email</label>
+                    <label for="email">Email</label>
                     <span class="asteriskField">*</span>
                     <input
                       type="email"
@@ -82,7 +94,7 @@ class Login extends Component {
                     <p className="error">{errors && errors.email}</p>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="password">Password</label>
+                    <label for="password">Password</label>
                     <span class="asteriskField">*</span>
                     <input
                       id="password"
@@ -117,20 +129,11 @@ class Login extends Component {
                       Sign Up
                     </a>{" "}
                     <span> if you don't have an account.</span>
+                    {this.state.alert && this.state.alert.msg && (
+                      <Alert color={this.state.alert.type}>{this.state.alert.msg}</Alert>
+                    )}
                   </div>
-
-                  {/* <div className="sign-up-details">
-                    <button
-                      type="submit"
-                      className="nav-link signup-btn btn btn-primary generic-btn"
-                    >
-                      Login
-                    </button> */}
-                  {this.state.alert && this.state.alert.msg && (
-                    <Alert color={this.state.alert.type}>{this.state.alert.msg}</Alert>
-                  )}
-                  {/* </div> */}
-                </Form>
+                </form>
               </div>
             </div>
           </div>

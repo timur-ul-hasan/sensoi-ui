@@ -1,0 +1,29 @@
+body {
+  /* zoom: 80%; */
+}
+.error {
+  color: red;
+}
+p.error {
+  margin-bottom: 0px;
+}
+.sidebar .nav-link {
+  font-size: 12px;
+}
+label {
+  display: inline-block !important;
+  margin-bottom: 0.2rem !important;
+}
+body .p-inputtext {
+  font-size: 14px;
+  color: #333333;
+  background: #ffffff;
+  padding: 0.429em;
+  border: 1px solid #d7d4d4;
+  -webkit-transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 3px;
+}

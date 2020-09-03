@@ -1,4 +1,4 @@
-import validator from "validator";
+import validator from 'validator';
 const validateLogin = data => {
   console.log(data);
   let errors = {};
@@ -14,7 +14,7 @@ const validateLogin = data => {
 
   const feedback = {
     haserror: errors,
-    errors
+    errors,
   };
   return feedback;
 };
