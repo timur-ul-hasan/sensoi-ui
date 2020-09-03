@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import logo from "../../assets/images/logo.svg";
 import panel from "../../assets/images/page.svg";
 import pdf from "../../assets/images/pdf-icon.svg";
@@ -12,7 +14,14 @@ class Homepage extends Component {
     super(props);
     this.state = {};
   }
-
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.auth && nextProps.auth.user) {
+      this.setState({ user: nextProps.auth.user });
+    }
+    if (nextProps.alerts && nextProps.alerts.alerts) {
+      this.setState({ alert: nextProps.alerts.alerts });
+    }
+  }
   render() {
     return (
       <div className="wrapper">
@@ -280,5 +289,14 @@ class Homepage extends Component {
     );
   }
 }
+Homepage.propTypes = {
+  alerts: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
+};
 
-export default Homepage;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  alerts: state.alerts
+});
+export default connect(mapStateToProps)(Homepage);
+// export default ;

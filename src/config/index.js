@@ -1,0 +1,5 @@
+export default {
+    BASE_URL: "sensoi-api.herokuapp.com/",
+    INIT_TOKEN:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJmZmhvY2VudHJhbCIsImlhdCI6MTU4MDQ2NzQzNywic3ViIjoiMSIsImlzcyI6ImZhdWppSG8iLCJzdWJvcmdpZCI6IjEwMCIsInJvbGUiOiJTdXBlciIsImZ1bGxuYW1lIjoiU3VwZXIiLCJlbXBubyI6IjExMTY3MiIsIm1haW5vcmdpZCI6IjEiLCJ1c2VyaWQiOiIxIiwiZW1haWwiOiJhQGIuY29tIiwidXNlcm5hbWUiOiJzdXBlciIsInBvbGljeSI6IkRlZmF1bHQgUG9saWN5IiwiZXhwIjoxNTgwNTUwMjM3fQ.XYQfNka14DqWzp5ITUPT9T80TuZNEG2iwHtFutCuI6E"
+  };

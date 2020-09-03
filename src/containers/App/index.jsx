@@ -17,11 +17,10 @@ const App = props => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/home" component={Home} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/login" exact component={Signin} />
         <Route path="/signup" exact component={Signup} />
-        <Route path="/" component={Dashboard} />
+        <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>
   );
