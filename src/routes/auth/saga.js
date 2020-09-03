@@ -1,6 +1,6 @@
 import { put, call, takeLeading, select, take, delay, cancelled } from "redux-saga/effects";
 import ACTIONS from "./actions/type/auth";
-import {browserHistory} from "react";
+import { browserHistory } from "react";
 import { login, signUp } from "./api";
 
 function* signUpHandler(action) {
@@ -23,7 +23,7 @@ function* signUpHandler(action) {
   } finally {
   }
 }
-let token
+let token;
 function* loginHandler(action) {
   const { email, password } = action.payload;
   try {
@@ -37,21 +37,21 @@ function* loginHandler(action) {
         type: ACTIONS.SIGN_IN_SUCCESS,
         payload: res.data,
       });
-      localStorage.setItem('token', JSON.stringify(token))
-      browserHistory.push('/home')
-      console.log("hello")
+      localStorage.setItem("token", JSON.stringify(token));
+      browserHistory.push("/home");
+      console.log("hello");
     } else {
     }
   } catch (error) {
-    yield put({ type: ACTIONS.LOGIN_ERROR, error })
+    yield put({ type: ACTIONS.LOGIN_ERROR, error });
     console.error(error);
   } finally {
     if (yield cancelled()) {
-      browserHistory.push('/login')
+      browserHistory.push("/login");
     }
     // setSubmitting(false);
   }
-  return token
+  return token;
 }
 
 function* loginListener() {

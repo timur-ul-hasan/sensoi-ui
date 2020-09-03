@@ -12,15 +12,24 @@ import Home from "../../routes/home/index";
 import Dashboard from "../../routes/dashboard/index";
 
 import { Signin, Signup } from "../../routes/auth";
+import RoutePrivate from "../RoutePrivate";
+import RoutePublic from "../RoutePublic";
+import { useIsAuthenticated } from "../../routes/auth/hooks";
 
 const App = props => {
+  const isAuthenticated = useIsAuthenticated();
+
+  React.useEffect(() => {
+    console.log(isAuthenticated);
+  }, [isAuthenticated]);
+
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/login" exact component={Signin} />
-        <Route path="/signup" exact component={Signup} />
-        <Route path="/" component={Home} />
+        <RoutePrivate path="/dashboard" component={Dashboard} isAuthenticated={isAuthenticated} />
+        <RoutePublic path="/login" exact component={Signin} isAuthenticated={isAuthenticated} />
+        <RoutePublic path="/signup" exact component={Signup} isAuthenticated={isAuthenticated} />
+        <RoutePublic path="/" component={Home} isAuthenticated={isAuthenticated} />
       </Switch>
     </BrowserRouter>
   );
