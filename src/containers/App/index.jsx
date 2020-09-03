@@ -8,13 +8,14 @@ import  Signin from "../../routes/auth/signIn/index";
 import Signup from "../../routes/auth/signUp/index";
 import Dashboard from "../../routes/home/index";
 import {history} from  "../../routes/history";
+import forgetpassword from "../../routes/auth/signIn/forgetpasswrd"
 // import {PrivateRoute} from "../../routes/privateRoute";
 const App = props => {
   return (
     // <BrowserRouter>
      <Router history={history}>
       <Switch>
-      {/* <PrivateRoute exact path="/" component={Home} /> */}
+      <Route exact path="/forgetpassword" component={forgetpassword} /> 
         <Route path="/home" privateRoute="true" component={Home} />
         <Route path="/dashboard" component={DashBoard} />
         <Route path="/login" exact component={Signin} />

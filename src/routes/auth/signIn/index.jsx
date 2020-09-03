@@ -30,16 +30,17 @@ class Login extends Component {
     };
     
    const { haserror, errors } = validateLogin(data);
-  //  if (haserror,errors) {
-  //     this.setState({ errors });
-  //     return;
-  //     } 
-  //     else {
-  //  this.setState(initialState);
-  //  this.props.loginUser(data);
-  //     }
+   if (haserror,errors) {
+      this.setState({ errors });
+      return;
+      } 
+      else {
+   this.setState(initialState);
+   this.props.loginUser(data);
+      }
  this.props.loginUser(data);
      console.log(data);
+     console.log (errors);
      
     
   };
@@ -68,6 +69,7 @@ class Login extends Component {
 
   render() {
     const { errors } = this.state;
+    console.log(errors);
     return (
       <div className="generic-body-login">
         <div className="modal" id="login">
@@ -111,7 +113,7 @@ class Login extends Component {
                     <div class="form-group">
                       <input type="checkbox" id="check1" />
                       <label for="check1">keep me logged in</label>
-                      <a href="/pasword-reset/" class="forgot-psw">
+                      <a href="/forgetpassword/" class="forgot-psw">
                         Forgot Password ?
                       </a>
                     </div>
