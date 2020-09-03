@@ -30,16 +30,16 @@ class Login extends Component {
     };
     
    const { haserror, errors } = validateLogin(data);
-   if (haserror,errors) {
-      this.setState({ errors });
-      return;
-      } 
-      else {
-   this.setState(initialState);
-   this.props.loginUser(data);
-      }
-  // this.props.loginUser(data);
-  //     console.log(data);
+  //  if (haserror,errors) {
+  //     this.setState({ errors });
+  //     return;
+  //     } 
+  //     else {
+  //  this.setState(initialState);
+  //  this.props.loginUser(data);
+  //     }
+ this.props.loginUser(data);
+     console.log(data);
      
     
   };
