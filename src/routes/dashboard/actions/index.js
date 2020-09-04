@@ -28,11 +28,16 @@ import {
   DASHBOARD_FAILURE,
 } from "../types";
 
+const dashboardSuccess = payload => ({
+  type: DASHBOARD_SUCCESS,
+  payload,
+});
+
 export const requestDashboard = () => (dispatch, getState) => {
   const token = getAccessToken(getState());
   (async () => {
-    const data = await dashboard({ token });
-    console.log(data);
+    const response = await dashboard({ token });
+    dispatch(dashboardSuccess(response.data));
   })();
 };
 

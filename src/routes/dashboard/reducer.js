@@ -15,6 +15,7 @@ import {
   GET_FAVORITE_LIST,
   GET_OPEN_FILE,
   POST_OPEN_FILE,
+  DASHBOARD_SUCCESS,
 } from "../types";
 
 const initialState = {
@@ -27,6 +28,11 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case DASHBOARD_SUCCESS:
+      return {
+        ...state,
+        dashboard: action.payload,
+      };
     case ADD_FILE:
       return {
         ...state,
@@ -46,7 +52,6 @@ export default (state = initialState, action) => {
         project_list: action.payload,
         loading: true,
       };
-
     default:
       return state;
   }
