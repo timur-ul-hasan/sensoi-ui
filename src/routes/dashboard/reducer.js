@@ -22,6 +22,7 @@ const initialState = {
   favorite_list: [],
   project_list: [],
   loading: true,
+  dashboard: {},
 };
 
 export default (state = initialState, action) => {
