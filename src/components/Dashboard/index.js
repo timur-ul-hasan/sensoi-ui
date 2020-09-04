@@ -15,15 +15,12 @@ import edit from "../../assets/images/edit-icon.svg";
 import update from "../../assets/images/update-icon.svg";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {addFavorite, addFile} from "../../routes/dashboard/actions"
+import { addFavorite, addFile } from "../../routes/dashboard/actions";
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-
-
-
 
   render() {
     return (
@@ -1640,10 +1637,9 @@ Dashboard.propTypes = {
 const mapStateToProps = state => ({
   errors: state.errors, //STORE
   addFile: state.addFile, //STORE
-  addFavorite: state.addFavorite // Store
+  addFavorite: state.addFavorite, // Store
 });
 export default connect(mapStateToProps, {
   addFavorite,
-  addFile
+  addFile,
 })(Dashboard);
-
