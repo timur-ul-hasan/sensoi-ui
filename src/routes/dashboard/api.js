@@ -29,12 +29,7 @@ export const copyIngested = async ({}) =>
     method: methods.GET,
     data: {},
   });
-export const copyIngested = async ({}) =>
-  await client()({
-    url: `${AUTH_URL}api/copy_ingested/`,
-    method: methods.POST,
-    data: {},
-  });
+
 export const newProject = async ({ project_name }) =>
   await client()({
     url: `${AUTH_URL}api/new-project/` + project_name + `create`,
@@ -179,11 +174,3 @@ export const renameFile = async ({ id }) =>
     data: {},
     method: methods.GET,
   });
-export const renameFile = async ({ id }) =>
-  await client()({
-    url: `${AUTH_URL}rename-file/` + id,
-    data: {},
-    method: methods.POST,
-  });
-
-  

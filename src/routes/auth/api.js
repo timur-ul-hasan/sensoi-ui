@@ -1,6 +1,6 @@
+import axios from "axios";
 import client, { methods } from "../../api/axios";
 import { baseURL } from "../../config";
-import axios from "axios";
 const AUTH_URL = `${baseURL}/accounts/`;
 
 export const login = async data => {

@@ -1,12 +1,5 @@
-import React, { memo, useEffect } from "react";
-import {
-  Route,
-  Switch,
-  useHistory,
-  BrowserRouter,
-  useLocation,
-  useRouteMatch,
-} from "react-router-dom";
+import React, { memo } from "react";
+import { Switch, BrowserRouter } from "react-router-dom";
 
 import Home from "../../routes/home/index";
 import Dashboard from "../../routes/dashboard/index";
@@ -16,12 +9,8 @@ import RoutePrivate from "../RoutePrivate";
 import RoutePublic from "../RoutePublic";
 import { useIsAuthenticated } from "../../routes/auth/hooks";
 
-const App = props => {
+const App = () => {
   const isAuthenticated = useIsAuthenticated();
-
-  React.useEffect(() => {
-    console.log(isAuthenticated);
-  }, [isAuthenticated]);
 
   return (
     <BrowserRouter>

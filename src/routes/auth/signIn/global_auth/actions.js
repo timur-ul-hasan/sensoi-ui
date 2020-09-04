@@ -1,5 +1,12 @@
 import axios from "axios";
-import { GET_ALERTS, LOGIN_USER, CLEAR_ERRORS, CLEAR_ALERTS } from "../../type";
+import {
+  GET_ALERTS,
+  LOGIN_USER,
+  CLEAR_ERRORS,
+  CLEAR_ALERTS,
+  SIGN_UP_SUCCESS,
+  SIGN_IN_SUCCESS,
+} from "../../type";
 import ErrorHandler from "../../../../util/errorHandler";
 // import jwt_decode from "jwt-decode";
 import setAuthToken from "../../../../util/setAuthToken";
@@ -34,11 +41,15 @@ export const loginUser = data => dispatch => {
     .post(url, data)
     .then(res => {
       console.log(res.data.access);
-      const data  = res.data;
-      const  token = res.data.access;
+      const data = res.data;
+      const token = res.data.access;
       localStorage.setItem("clientSecret", token);
       setAuthToken(token);
       dispatch(setCurrentUser(token));
+      dispatch({
+        type: SIGN_IN_SUCCESS,
+        payload: res.data,
+      });
     })
     .catch(err => {
       const e = ErrorHandler(err);

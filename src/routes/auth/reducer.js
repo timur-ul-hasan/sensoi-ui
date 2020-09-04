@@ -8,21 +8,21 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ACTIONS.LOG_IN_USER:
+    case ACTIONS.SIGN_IN_SUCCESS:
       return {
         ...state,
         isAuthenticated: true,
         token: action.payload,
       };
-      case ACTIONS.SIGN_UP_SUCCESS:
-        return {
-          ...state,
-          modules: [action.payload, ...state.modules],
-          loading: false
-        };
-   
-        // case ACTIONS.SIGN_UP_SUCCESS:
-     
+    case ACTIONS.SIGN_UP_SUCCESS:
+      return {
+        ...state,
+        modules: [action.payload, ...state.modules],
+        loading: false,
+      };
+
+    // case ACTIONS.SIGN_UP_SUCCESS:
+
     // return {
     //   ...state,
     //   isAuthenticated: true,

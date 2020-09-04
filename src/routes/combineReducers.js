@@ -10,8 +10,8 @@ import dashboardReducer from "./dashboard/reducer";
 import alertReducer from "./alert-error/alertReducer";
 import errorReducer from "./alert-error/errorReducer";
 export default combineReducers({
-//   auth: authReducer,
+  //   auth: authReducer,
   errors: errorReducer,
   alerts: alertReducer,
- dashboard: dashboardReducer,
+  dashboard: dashboardReducer,
 });
