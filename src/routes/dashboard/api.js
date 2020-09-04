@@ -138,12 +138,7 @@ export const openDashboard = async ({ id }) =>
     data: {},
     method: methods.GET,
   });
-export const openDashboard = async ({ id }) =>
-  await client()({
-    url: `${AUTH_URL}open/` + id,
-    data: {},
-    method: methods.POST,
-  });
+
 export const postRating = async ({ node_id, rating }) =>
   await client()({
     url: `${AUTH_URL}post-rating/` + node_id + rating,
