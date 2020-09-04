@@ -13,12 +13,17 @@ import print from "../../assets/images/print-icon.svg";
 import inser from "../../assets/images/insert-icon.svg";
 import edit from "../../assets/images/edit-icon.svg";
 import update from "../../assets/images/update-icon.svg";
-
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import {addFavorite, addFile} from "../../routes/dashboard/actions"
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+
+
 
   render() {
     return (
@@ -1628,4 +1633,17 @@ class Dashboard extends Component {
     );
   }
 }
-export default Dashboard;
+Dashboard.propTypes = {
+  addFavorite: PropTypes.func.isRequired,
+  addFile: PropTypes.func.isRequired,
+};
+const mapStateToProps = state => ({
+  errors: state.errors, //STORE
+  addFile: state.addFile, //STORE
+  addFavorite: state.addFavorite // Store
+});
+export default connect(mapStateToProps, {
+  addFavorite,
+  addFile
+})(Dashboard);
+
