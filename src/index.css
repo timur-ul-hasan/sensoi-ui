@@ -27,3 +27,33 @@ body .p-inputtext {
   appearance: none;
   border-radius: 3px;
 }
+.menu {
+  width: 100%;
+}
+
+.menu-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  transition: var(--speed);
+  padding: 0.5rem;
+  margin-top: 0;
+}
+
+.menu-item .icon-button {
+  margin-right: 0.5rem;
+  margin-top: 0;
+}
+
+.menu-item .icon-button:hover {
+  filter: none;
+}
+
+.menu-item:hover {
+  background-color: #525357;
+}
+
+.icon-right {
+  margin-left: auto;
+}
