@@ -1,0 +1,81 @@
+body {
+  /* zoom: 80%; */
+}
+.error {
+  color: red;
+}
+p.error {
+  margin-bottom: 0px;
+}
+.sidebar .nav-link {
+  font-size: 12px;
+}
+label {
+  display: inline-block !important;
+  margin-bottom: 0.2rem !important;
+}
+body .p-inputtext {
+  font-size: 14px;
+  color: #333333;
+  background: #ffffff;
+  padding: 0.429em;
+  border: 1px solid #d7d4d4;
+  -webkit-transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 3px;
+}
+
+.text-lower {
+  text-transform: lowercase !important;
+}
+
+.text-upper {
+  text-transform: uppercase !important;
+}
+
+.text-capital {
+  text-transform: capitalize !important;
+}
+.react-html5-camera-photo > img,
+.react-html5-camera-photo > video {
+  width: 100% !important;
+}
+.custom-modal {
+  width: 100vw;
+}
+
+/* input {
+  text-transform: uppercase !important;
+} */
+select > option {
+  text-transform: uppercase !important;
+}
+
+#react-select-2-input,
+.p-accordion-header-text {
+  text-transform: uppercase !important;
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.fullscreen {
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  align-items: center !important;
+}
+.fullscreen > .modal-content {
+  height: 100vh !important;
+  overflow-y: scroll !important;
+}
+.modal-header {
+  display: initial !important;
+}
+.float-right {
+  float: right !important;
+}

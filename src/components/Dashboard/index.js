@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// import Dropdown from "react-bootstrap";
+import { Menubar } from "primereact/menubar";
 import view from "../../assets/images/admin-icon1.svg";
 import recentlyadd from "../../assets/images/admin-icon2.svg";
 import favourit from "../../assets/images/admin-icon3.svg";
@@ -6,24 +8,203 @@ import trash from "../../assets/images/admin-icon4.svg";
 import icon from "../../assets/images/hamburger.svg";
 import admin from "../../assets/images/analyze.svg";
 import help from "../../assets/images/help-icon.svg";
-// import redo from "../.../assets/images/redo-icon.svg";
 import undo from "../../assets/images/undo-icon.svg";
 import screenshot from "../../assets/images/screenshot-icon.svg";
 import print from "../../assets/images/print-icon.svg";
 import inser from "../../assets/images/insert-icon.svg";
 import edit from "../../assets/images/edit-icon.svg";
 import update from "../../assets/images/update-icon.svg";
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {addFavorite, addFile} from "../../routes/dashboard/actions"
+import { addFavorite, addFile } from "../../routes/dashboard/actions";
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.items = [
+      {
+        label: "File",
+        icon: "pi pi-fw pi-file",
+        items: [],
+      },
+      {
+        label: "Reports",
+        icon: "pi pi-fw pi-folder",
+        items: [
+          {
+            label: "Layout",
+            icon: "pi pi-fw pi-plus",
+            items: [
+              {
+                label: "Folder 1",
+                icon: "pi pi-fw pi-folder",
+              },
+              {
+                label: "Folder 2",
+                icon: "pi pi-fw pi-folder",
+              },
+
+              {
+                label: "Folder 3",
+                icon: "pi pi-fw pi-folder",
+              },
+            ],
+          },
+          {
+            separator: true,
+          },
+          {
+            label: "Title",
+            icon: "pi pi-fw pi-title",
+            items: [
+              {
+                label: "Title 1 ",
+                icon: "pi pi-fw pi-uname",
+              },
+              {
+                label: "Title 2",
+                icon: "pi pi-fw pi-uname",
+              },
+              {
+                label: "Title 3",
+                icon: "pi pi-fw pi-uname",
+              },
+            ],
+          },
+          {
+            label: "Tag",
+            icon: "pi pi-fw pi-plus",
+            items: [
+              {
+                label: "Tag 1",
+                icon: "pi pi-fw pi-tag",
+              },
+              {
+                label: "Tag 2",
+                icon: "pi pi-fw pi-tag",
+              },
+              {
+                label: "Tag 3",
+                icon: "pi pi-fw pi-tag",
+              },
+            ],
+          },
+          {
+            label: "Add Note",
+            icon: "pi pi-fw pi-plus",
+            items: [
+              {
+                label: "Note 1",
+                icon: "pi pi-fw pi-tag",
+              },
+              {
+                label: "Note  2",
+                icon: "pi pi-fw pi-tag",
+              },
+              {
+                label: "Note 3",
+                icon: "pi pi-fw pi-tag",
+              },
+            ],
+          },
+          {
+            label: "Review",
+            icon: "pi pi-fw pi-plus",
+            items: [
+              {
+                label: "Review 1",
+                icon: "pi pi-fw pi-tag",
+              },
+              {
+                label: "Review  2",
+                icon: "pi pi-fw pi-tag",
+              },
+              {
+                label: "Review 3",
+                icon: "pi pi-fw pi-tag",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        label: "Analyze",
+        icon: "pi pi-fw pi-user",
+        items: [
+          {
+            label: "Source",
+            icon: "pi pi-fw pi-user-plus",
+            items: [
+              {
+                label: "Source Name",
+                icon: "pi pi-fw pi-filter",
+              },
+              {
+                label: "Source Name 2",
+                icon: "pi pi-fw pi-filter",
+              },
+            ],
+          },
+          {
+            label: "Eligibility",
+            icon: "pi pi-fw pi-user-plus",
+            items: [
+              {
+                label: "Folder  Name",
+                icon: "pi pi-fw pi-filter",
+              },
+              {
+                label: "Folder Name 2",
+                icon: "pi pi-fw pi-filter",
+              },
+            ],
+          },
+          {
+            label: "Similiirty %",
+            icon: "pi pi-fw pi-user-plus",
+            items: [
+              {
+                label: "Folder  Name",
+                icon: "pi pi-fw pi-filter",
+              },
+              {
+                label: "Folder Name 2",
+                icon: "pi pi-fw pi-filter",
+              },
+            ],
+          },
+          {
+            label: "Relevance %",
+            icon: "pi pi-fw pi-user-plus",
+            items: [
+              {
+                label: "Folder  Name",
+                icon: "pi pi-fw pi-filter",
+              },
+              {
+                label: "Folder Name 2",
+                icon: "pi pi-fw pi-filter",
+              },
+            ],
+          },
+          {
+            label: "Bias Check %",
+            icon: "pi pi-fw pi-user-plus",
+            items: [
+              {
+                label: "Folder  Name",
+                icon: "pi pi-fw pi-filter",
+              },
+              {
+                label: "Folder Name 2",
+                icon: "pi pi-fw pi-filter",
+              },
+            ],
+          },
+        ],
+      },
+    ];
   }
-
-
-
 
   render() {
     return (
@@ -98,7 +279,12 @@ class Dashboard extends Component {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#features">
+                  <a
+                    className="nav-link"
+                    href={this.items}
+                    style={{ width: "22rem" }}
+                    onClick={this.toggle}
+                  >
                     Recently added
                   </a>
                 </li>
@@ -123,680 +309,63 @@ class Dashboard extends Component {
             <div className="row row-offcanvas row-offcanvas-left">
               <div className="sidebar-offcanvas" id="sidebar" role="navigation">
                 <aside className="">
-                  <div className="container nopadding">
-                    <ul className="nav nav-tabs">
-                      <li className="row1">
-                        <a data-toggle="tab" href="#home">
-                          {" "}
-                          Filter
-                        </a>
-                      </li>
-                      <li className="">
-                        <a data-toggle="tab" href="#folder">
-                          {" "}
-                          Reports
-                        </a>
-                      </li>
-                      <li className="analyze-list">
-                        <a data-toggle="tab" href="#analyze">
-                          {" "}
-                          Analyze
-                        </a>
-                      </li>
-                    </ul>
-                    <div className="tab-content">
-                      <div id="home" className="tab-pane fade in active">
-                        <p>File Type</p>
-                        <ul className="select-type">
-                          <li>
-                            <a href="#">PDF</a>
-                          </li>
-                          <li>
-                            <a href="#">DOC</a>
-                          </li>
-                          <li>
-                            <a href="#">TXT</a>
-                          </li>
-                        </ul>
-                        <p>Year</p>
-                        <div className="select-date">
-                          <input type="text" placeholder="2008" />
-                          <span>to</span>
-                          <input type="text" placeholder="2009" />
-                        </div>
-                        <p>Author Name</p>
-                        <div className="search-name">
-                          <input type="text" placeholder="Search by author name" />
-                        </div>
-                        <p>Key words</p>
-                        <div className="search-name">
-                          <input type="text" placeholder="Write a key word" />
-                        </div>
-                        <button type="button" className="type-button blue-btn">
-                          books
-                        </button>
-                        <button type="button" className="type-button red-btn">
-                          Statistics
-                        </button>
-                      </div>
-                      <div id="folder" className="tab-pane fade">
-                        <div className="container-fluid nopadding">
-                          <div className="row">
-                            <div className="col-md-12">
-                              <div id="MainMenu">
-                                <div className="list-group panel">
-                                  <a
-                                    href="#demo1"
-                                    className="list-group-item list-group-item-success collapsed"
-                                    data-toggle="collapse"
-                                    data-parent="#MainMenu"
-                                    aria-expanded="false"
-                                  >
-                                    Layout
-                                  </a>
-                                  <div className="collapse" id="demo1">
-                                    <a
-                                      href="#SubMenu2"
-                                      className="list-group-item subitem"
-                                      data-toggle="collapse"
-                                      data-parent="#SubMenu1"
-                                    >
-                                      Folder number 1
-                                    </a>
-                                    <a href="" className="list-group-item subitem">
-                                      Folder number 2
-                                    </a>
-                                    <a href="" className="list-group-item subitem">
-                                      Folder number 3
-                                    </a>
-                                  </div>
-                                  <a
-                                    href="#demo2"
-                                    className="list-group-item list-group-item-success collapsed"
-                                    data-toggle="collapse"
-                                    data-parent="#MainMenu"
-                                    aria-expanded="false"
-                                  >
-                                    Title
-                                  </a>
-                                  <div className="collapse" id="demo2">
-                                    <a
-                                      href="#SubMenu2"
-                                      className="list-group-item subitem"
-                                      data-toggle="collapse"
-                                      data-parent="#SubMenu2"
-                                    >
-                                      Folder number 1
-                                    </a>
-                                    <a href="" className="list-group-item subitem">
-                                      Folder number 2
-                                    </a>
-                                    <a href="" className="list-group-item subitem">
-                                      Folder number 3
-                                    </a>
-                                  </div>
-                                  <a
-                                    href="#demo3"
-                                    className="list-group-item list-group-item-success collapsed"
-                                    data-toggle="collapse"
-                                    data-parent="#MainMenu"
-                                    aria-expanded="false"
-                                  >
-                                    Tag Item
-                                  </a>
-                                  <div className="collapse" id="demo3">
-                                    <a
-                                      href="#SubMenu3"
-                                      className="list-group-item subitem"
-                                      data-toggle="collapse"
-                                      data-parent="#SubMenu3"
-                                    >
-                                      Folder Name 1{" "}
-                                    </a>
-                                    <a href="" className="list-group-item subitem">
-                                      Folder number 2{" "}
-                                    </a>
-                                    <a href="" className="list-group-item subitem">
-                                      Folder number 3{" "}
-                                    </a>
-                                  </div>
-                                  <a
-                                    href="#demo4"
-                                    className="list-group-item list-group-item-success collapsed"
-                                    data-toggle="collapse"
-                                    data-parent="#MainMenu"
-                                    aria-expanded="false"
-                                  >
-                                    Add Note
-                                  </a>
-                                  <div className="collapse" id="demo4">
-                                    <a
-                                      href="#SubMenu4"
-                                      className="list-group-item subitem"
-                                      data-toggle="collapse"
-                                      data-parent="#SubMenu4"
-                                    >
-                                      Folder Name 1{" "}
-                                    </a>
-                                    <a href="" className="list-group-item subitem">
-                                      Folder number 2
-                                    </a>
-                                    <a href="" className="list-group-item subitem">
-                                      Folder number 3
-                                    </a>
-                                  </div>
-                                  <a
-                                    href="#demo5"
-                                    className="list-group-item list-group-item-success collapsed"
-                                    data-toggle="collapse"
-                                    data-parent="#MainMenu"
-                                    aria-expanded="false"
-                                  >
-                                    Review
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                  <div className="container-fluid nopadding">
+                    <div className="row">
+                      {/* <div className="col-md-12"> */}
+                      <div id="MainMenu">
+                        <div className="list-group panel">
+                          <CardBody>
+                            <Menubar
+                              model={this.items}
+                              style={{
+                                backgroundcolor: "#6c757d",
+                                color: "#6c757d",
+                                padding: "200px,250px,20px,20px",
+                                fontfamily: "Arial",
+                                textalign: "center",
+                                fontsize: "25px",
+                              }}
+                            />
+                          </CardBody>
                         </div>
                       </div>
-                      <div id="analyze" className="tab-pane fade">
-                        <div id="MainMenu1">
-                          <div className="list-group panel">
-                            <a
-                              href="#analyze1"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              <span>Sources</span>
-                            </a>
-                            <div className="collapse" id="analyze1">
-                              <div className="custom-control custom-switch">
-                                <input
-                                  type="checkbox"
-                                  className="custom-control-input"
-                                  id="switch1"
-                                  name="example"
-                                />
-                                <label className="custom-control-label" for="switch1">
-                                  A source
-                                </label>
-                              </div>
-                              <div className="custom-control custom-switch">
-                                <input
-                                  type="checkbox"
-                                  className="custom-control-input"
-                                  id="switch2"
-                                  name="example"
-                                />
-                                <label className="custom-control-label" for="switch2">
-                                  A source name
-                                </label>
-                              </div>
-                              <div className="custom-control custom-switch">
-                                <input
-                                  type="checkbox"
-                                  className="custom-control-input"
-                                  id="switch3"
-                                  name="example"
-                                />
-                                <label className="custom-control-label" for="switch3">
-                                  A source
-                                </label>
-                              </div>
-                              <div className="custom-control custom-switch">
-                                <input
-                                  type="checkbox"
-                                  className="custom-control-input"
-                                  id="switch4"
-                                  name="example"
-                                ></input>
-                                <label className="custom-control-label" for="switch4">
-                                  A source name
-                                </label>
-                              </div>
-                              <div className="custom-control custom-switch">
-                                <input
-                                  type="checkbox"
-                                  className="custom-control-input"
-                                  id="switch5"
-                                  name="example"
-                                />
-                                <label className="custom-control-label" for="switch5">
-                                  A source name
-                                </label>
-                              </div>
-                              <div className="custom-control custom-switch">
-                                <input
-                                  type="checkbox"
-                                  className="custom-control-input"
-                                  id="switch6"
-                                  name="example"
-                                ></input>
-                                <label className="custom-control-label" for="switch6">
-                                  A source name
-                                </label>
-                              </div>
-                              <div className="custom-control custom-switch">
-                                <input
-                                  type="checkbox"
-                                  className="custom-control-input"
-                                  id="switch7"
-                                  name="example"
-                                ></input>
-                                <label className="custom-control-label" for="switch7">
-                                  A source name
-                                </label>
-                              </div>
-                              <div className="custom-control custom-switch">
-                                <input
-                                  type="checkbox"
-                                  className="custom-control-input"
-                                  id="switch8"
-                                  name="example"
-                                ></input>
-                                <label className="custom-control-label" for="switch8">
-                                  A source name
-                                </label>
-                              </div>
-                            </div>
-                            <a
-                              href="#analyze2"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              Eligibility
-                            </a>
-                            <div className="collapse" id="analyze2">
-                              <a
-                                href="#SubMenu2"
-                                className="list-group-item subitem"
-                                data-toggle="collapse"
-                                data-parent="#SubMenu2"
-                              >
-                                Folder number 1
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 2
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 3
-                              </a>
-                            </div>
-                            <a
-                              href="#analyze3"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              <span>Similarity % </span>
-                            </a>
-                            <div className="collapse" id="analyze3">
-                              <p>Set the percent</p>
-                              <span id="slider_value">Nothing yet.</span>
-                              <input
-                                type="range"
-                                className="custom-range"
-                                id="customRange1"
-                                value="0.5"
-                                min="0.0"
-                                max="1.0"
-                                step="0.01"
-                              ></input>
-                              <p> Enter key words</p>
-                              <div className="search-name">
-                                <input type="text" placeholder="eg: books, ice, home"></input>
-                              </div>
-                              <button type="button" className="type-button blue-btn">
-                                books
-                              </button>
-                              <button type="button" className="type-button red-btn">
-                                Statistics
-                              </button>
-
-                              <p>Path to a reference document</p>
-                              <div className="search-name">
-                                <input
-                                  type="text"
-                                  placeholder="eg: file path is storage medium"
-                                ></input>
-                              </div>
-                            </div>
-                            <a
-                              href="#analyze4"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              Relevancy %
-                            </a>
-                            <div className="collapse" id="analyze4">
-                              <a
-                                href="#SubMenu2"
-                                className="list-group-item subitem"
-                                data-toggle="collapse"
-                                data-parent="#SubMenu2"
-                              >
-                                Folder number 1
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 2
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 3
-                              </a>
-                            </div>
-                            <a
-                              href="#analyze5"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              Bias Check
-                            </a>
-                            <div className="collapse" id="analyze5">
-                              <a
-                                href="#SubMenu2"
-                                className="radio-option list-group-item subitem"
-                                data-toggle="collapse"
-                                data-parent="#SubMenu2"
-                              >
-                                Select Documents
-                              </a>
-                              <a href="" className="radio-option list-group-item subitem">
-                                Recently Selected
-                              </a>
-                              <a
-                                href="#analyze56"
-                                className="radio-option list-group-item list-group-item-success collapsed"
-                                data-toggle="collapse"
-                                data-parent="#MainMenu"
-                                aria-expanded="false"
-                              >
-                                Bias Check Options
-                              </a>
-
-                              <div className="collapse radio-list" id="analyze56">
-                                <div className="custom-control custom-radio">
-                                  <input
-                                    type="radio"
-                                    className="custom-control-input"
-                                    id="defaultUnchecked1"
-                                    name="defaultExampleRadios"
-                                  ></input>
-                                  <label className="custom-control-label" for="defaultUnchecked1">
-                                    <span>By Date</span>
-                                  </label>
-                                </div>
-
-                                <div className="custom-control custom-radio">
-                                  <input
-                                    onChnage={this.onChnage}
-                                    type="radio"
-                                    className="custom-control-input"
-                                    id="defaultChecked2"
-                                    name="defaultExampleRadios"
-                                    checked
-                                  ></input>
-                                  <label className="custom-control-label" for="defaultChecked2">
-                                    By Location
-                                  </label>
-                                </div>
-
-                                <div className="custom-control custom-radio">
-                                  <input
-                                    onChnage={this.onChnage}
-                                    type="radio"
-                                    className="custom-control-input"
-                                    id="defaultChecked3"
-                                    name="defaultExampleRadios"
-                                    checked
-                                  ></input>
-                                  <label className="custom-control-label" for="defaultChecked3">
-                                    By Facility{" "}
-                                  </label>
-                                </div>
-
-                                <div className="custom-control custom-radio">
-                                  <input
-                                    onChnage={this.onChnage}
-                                    type="radio"
-                                    className="custom-control-input"
-                                    id="defaultChecked4"
-                                    name="defaultExampleRadios"
-                                    checked
-                                  ></input>
-                                  <label className="custom-control-label" for="defaultChecked4">
-                                    By Population{" "}
-                                  </label>
-                                </div>
-                                <div className="custom-control custom-radio">
-                                  <input
-                                    onChnage={this.onChnage}
-                                    type="radio"
-                                    className="custom-control-input"
-                                    id="defaultChecked5"
-                                    name="defaultExampleRadios"
-                                    checked
-                                  ></input>
-                                  <label className="custom-control-label" for="defaultChecked5">
-                                    By Author{" "}
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                            <a
-                              href="#analyze6"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              Quality Check
-                            </a>
-                            <div className="collapse" id="analyze6">
-                              <a
-                                href="#SubMenu2"
-                                className="list-group-item subitem"
-                                data-toggle="collapse"
-                                data-parent="#SubMenu2"
-                              >
-                                Folder number 1
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 2
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 3
-                              </a>
-                            </div>
-                            <a
-                              href="#analyze7"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              Screening
-                            </a>
-                            <div className="collapse" id="analyze7">
-                              <a
-                                href="#SubMenu2"
-                                className="list-group-item subitem"
-                                data-toggle="collapse"
-                                data-parent="#SubMenu2"
-                              >
-                                Folder number 1
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 2
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 3
-                              </a>
-                            </div>
-
-                            <a
-                              href="#modeling"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              Topic Modeling
-                            </a>
-                            <div className="collapse" id="modeling">
-                              <a
-                                href="#SubMenu2"
-                                className="list-group-item subitem"
-                                data-toggle="collapse"
-                                data-parent="#SubMenu2"
-                              >
-                                Folder number 1
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 2
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 3
-                              </a>
-                            </div>
-                            <a
-                              href="#frequencies"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              Frequencies
-                            </a>
-                            <div className="collapse" id="frequencies">
-                              <a
-                                href="#SubMenu2"
-                                className="list-group-item subitem"
-                                data-toggle="collapse"
-                                data-parent="#SubMenu2"
-                              >
-                                Folder number 1
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 2
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 3
-                              </a>
-                            </div>
-                            <a
-                              href="#terms"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              Important Terms(TFIDF)
-                            </a>
-                            <div className="collapse" id="terms">
-                              <a
-                                href="#SubMenu2"
-                                className="list-group-item subitem"
-                                data-toggle="collapse"
-                                data-parent="#SubMenu2"
-                              >
-                                Folder number 1
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 2
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 3
-                              </a>
-                            </div>
-
-                            <a
-                              href="#words"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              Bag Of Words
-                            </a>
-                            <div className="collapse" id="words">
-                              <a
-                                href="#SubMenu2"
-                                className="list-group-item subitem"
-                                data-toggle="collapse"
-                                data-parent="#SubMenu2"
-                              >
-                                Folder number 1
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 2
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 3
-                              </a>
-                            </div>
-                            <a
-                              href="#analyze8"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              Rules
-                            </a>
-                            <div className="collapse" id="analyze8">
-                              <a
-                                href="#SubMenu2"
-                                className="list-group-item subitem"
-                                data-toggle="collapse"
-                                data-parent="#SubMenu2"
-                              >
-                                Folder number 1
-                              </a>
-                              <a href="javascript:;" className="list-group-item subitem">
-                                Folder number 2
-                              </a>
-                              <a href="javascript:;" className="list-group-item subitem">
-                                Folder number 3
-                              </a>
-                            </div>
-                            <a
-                              href="#analyze9"
-                              className="list-group-item list-group-item-success collapsed"
-                              data-toggle="collapse"
-                              data-parent="#MainMenu"
-                              aria-expanded="false"
-                            >
-                              Taxonomy
-                            </a>
-                            <div className="collapse" id="analyze9">
-                              <a
-                                href="#SubMenu2"
-                                className="list-group-item subitem"
-                                data-toggle="collapse"
-                                data-parent="#SubMenu2"
-                              >
-                                Folder number 1
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 2
-                              </a>
-                              <a href="" className="list-group-item subitem">
-                                Folder number 3
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+                    </div>
+                  </div>
+                  {/* </div>  */}
+                  <div className="tab-content">
+                    <div id="home" className="tab-pane fade in active">
+                      <p>File Type</p>
+                      <ul className="select-type">
+                        <li>
+                          <a href="#">PDF</a>
+                        </li>
+                        <li>
+                          <a href="#">DOC</a>
+                        </li>
+                        <li>
+                          <a href="#">TXT</a>
+                        </li>
+                      </ul>
+                      <p>Year</p>
+                      <div className="select-date">
+                        <input type="text" placeholder="2008" />
+                        <span>to</span>
+                        <input type="text" placeholder="2009" />
                       </div>
+                      <p>Author Name</p>
+                      <div className="search-name">
+                        <input type="text" placeholder="Search by author name" />
+                      </div>
+                      <p>Key words</p>
+                      <div className="search-name">
+                        <input type="text" placeholder="Write a key word" />
+                      </div>
+                      <button type="button" className="type-button blue-btn">
+                        books
+                      </button>
+                      <button type="button" className="type-button red-btn">
+                        Statistics
+                      </button>
                     </div>
                   </div>
                 </aside>
@@ -839,8 +408,6 @@ class Dashboard extends Component {
               <div id="open-project-modal" className="modal fade " role="dialog">
                 <div className="modal-dialog modal-md">
                   <div className="modal-content">
-                    {/* <!--              <input type="hidden" value="" id="project_parent_id"/>--> */}
-                    {/* <!--              <input type="hidden" value="0c6669b4-938c-4a11-8fd0-c9252b845bc9" id="project_folder_id"/>--> */}
                     <div className="modal-header">
                       <h5 className="modal-title">Open Project ...</h5>
                     </div>
@@ -900,6 +467,7 @@ class Dashboard extends Component {
                         <img src={icon} className="d-inline" alt="icon" width="30" />
                         <span>File </span>
                       </button>
+
                       <div className="dropdown-menu">
                         <a
                           className="dropdown-item"
@@ -934,7 +502,6 @@ class Dashboard extends Component {
                         <span>Project </span>
                       </button>
                       <div className="dropdown-menu">
-                        {/* <!--                    <a className="dropdown-item" href="/dashboard/open-file/">New Project</a>--> */}
                         <a
                           className="dropdown-item"
                           href=""
@@ -1634,16 +1201,15 @@ class Dashboard extends Component {
   }
 }
 Dashboard.propTypes = {
-  addFavorite: PropTypes.func.isRequired,
   addFile: PropTypes.func.isRequired,
+  addFavorite: PropTypes.func.isRequired,
 };
 const mapStateToProps = state => ({
   errors: state.errors, //STORE
   addFile: state.addFile, //STORE
-  addFavorite: state.addFavorite // Store
+  addFavorite: state.addFavorite, // Store
 });
 export default connect(mapStateToProps, {
   addFavorite,
-  addFile
+  addFile,
 })(Dashboard);
-
