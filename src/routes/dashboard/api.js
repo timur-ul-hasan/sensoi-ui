@@ -2,8 +2,6 @@ import { node } from "prop-types";
 import client, { methods } from "../../api/axios";
 import { baseURL } from "../../config";
 
-const AUTH_URL = `${baseURL}/dashboard/`;
-
 const URL = `${baseURL}`;
 
 export const dashboard = async ({ token }) =>
@@ -12,120 +10,122 @@ export const dashboard = async ({ token }) =>
     method: methods.GET,
   });
 
-export const addFavorite = async ({ id }) =>
-  await client()({
-    url: `${AUTH_URL}add-favorite/` + id,
+export const addFavorite = async ({ token, id }) =>
+  await client(token)({
+    url: `${URL}add-favorite/${id}`,
     data: {},
     method: methods.POST,
   });
 
-export const addFile = async ({ file, user, node_id }) =>
-  await client()({
-    url: `${AUTH_URL}add-file`,
+export const addFile = async ({ token, file, user, nodeId }) => {
+  const formData = new FormData();
+  formData.append("up_file", file);
+  formData.append("user", user);
+  formData.append("node_id", nodeId);
+
+  return await client(token)({
+    url: `${URL}add-file`,
     method: methods.POST,
-    data: {
-      up_file: file,
-      user,
-      node_id,
-    },
+    data: formData,
   });
-export const copyIngested = async ({}) =>
-  await client()({
-    url: `${AUTH_URL}api/copy_ingested/`,
+};
+export const copyIngested = async ({ token, projectName }) =>
+  await client(token)({
+    url: `${URL}api/copy_ingested/`,
     method: methods.GET,
     data: {},
   });
 
-export const newProject = async ({ project_name }) =>
-  await client()({
-    url: `${AUTH_URL}api/new-project/` + project_name + `create`,
+export const newProject = async ({ token, project_name }) =>
+  await client(token)({
+    url: `${URL}api/new-project/project_name/create`,
     data: {},
     method: methods.POST,
   });
-export const bottomPanel = async ({ node_id }) =>
-  await client()({
-    url: `${AUTH_URL}bottom-panel/` + node_id,
+export const bottomPanel = async ({ token, node_id }) =>
+  await client(token)({
+    url: `${URL}bottom-panel/${node_id}`,
     data: {},
     method: methods.GET,
   });
 
-export const createFolder = async ({ parent_id, folder_name }) =>
-  await client()({
-    url: `${AUTH_URL}create-folder/` + parent_id + folder_name,
+export const createFolder = async ({ token, parent_id, folder_name }) =>
+  await client(token)({
+    url: `${URL}create-folder/${parent_id}/${folder_name}`,
     data: {},
     method: methods.POST,
   });
-export const favoriteList = async ({}) =>
-  await client()({
-    url: `${AUTH_URL}favorite_list/`,
+export const favoriteList = async ({ token }) =>
+  await client(token)({
+    url: `${URL}favorite_list/`,
     data: {},
     method: methods.GET,
   });
 
-export const deleteFile = async ({}) =>
-  await client()({
-    url: `${AUTH_URL}file-manager/delete-files`,
+export const deleteFile = async ({ token }) =>
+  await client(token)({
+    url: `${URL}file-manager/delete-files`,
     data: {
       data: node,
     },
     method: methods.POST,
   });
 
-export const fileManager = async ({ parent_id }) =>
-  await client()({
-    url: `${AUTH_URL}file-manager/` + parent_id,
+export const fileManager = async ({ token, parent_id }) =>
+  await client(token)({
+    url: `${URL}file-manager/${parent_id}`,
     data: {
-      parent_id: parent_id,
+      parent_id,
     },
     method: methods.GET,
   });
 
-export const mainTable = async ({ parent_id }) =>
-  await client()({
-    url: `${AUTH_URL}main-table/` + parent_id,
+export const mainTable = async ({ token, parent_id }) =>
+  await client(token)({
+    url: `${URL}main-table/${parent_id}`,
     data: {
-      parent_id: parent_id,
+      parent_id,
     },
     method: methods.POST,
   });
 
-export const openFile = async ({}) =>
-  await client()({
-    url: `${AUTH_URL}open-file/`,
+export const openFile = async ({ token }) =>
+  await client(token)({
+    url: `${URL}open-file/`,
     data: {},
     method: methods.POST,
   });
 
-export const openDashboard = async ({ id }) =>
-  await client()({
-    url: `${AUTH_URL}open/` + id,
+export const openDashboard = async ({ token, id }) =>
+  await client(token)({
+    url: `${URL}open/${id}`,
     data: {},
     method: methods.GET,
   });
 
-export const postRating = async ({ node_id, rating }) =>
-  await client()({
-    url: `${AUTH_URL}post-rating/` + node_id + rating,
+export const postRating = async ({ token, node_id, rating }) =>
+  await client(token)({
+    url: `${URL}post-rating/${node_id}/${rating}`,
     data: {},
     method: methods.POST,
   });
-export const postTag = async ({ node_id, tag }) =>
-  await client()({
-    url: `${AUTH_URL}post-tag/` + node_id + tag,
+export const postTag = async ({ token, node_id, tag }) =>
+  await client(token)({
+    url: `${URL}post-tag/${node_id}/${tag}`,
     data: {},
     method: methods.POST,
   });
 
-export const project = async ({ project_name }) =>
-  await client()({
-    url: `${AUTH_URL}project/` + project_name,
+export const project = async ({ token, project_name }) =>
+  await client(token)({
+    url: `${URL}project/${project_name}`,
     data: {},
     method: methods.GET,
   });
 
-export const renameFile = async ({ id }) =>
-  await client()({
-    url: `${AUTH_URL}rename-file/` + id,
+export const renameFile = async ({ token, id }) =>
+  await client(token)({
+    url: `${URL}rename-file/${id}`,
     data: {},
     method: methods.GET,
   });
