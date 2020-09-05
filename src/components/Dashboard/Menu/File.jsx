@@ -9,16 +9,19 @@ function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionToggle(eventKey, () => console.log("totally custom!"));
 
   return (
-    <button type="button" onClick={decoratedOnClick}>
-      {children}
-    </button>
+    <i
+      onClick={decoratedOnClick}
+      type="button"
+      data-toggle="collapse"
+      data-target="#demo"
+      id="create_new_folder_btn"
+      className=" mr-5 fa fa-plus-circle pull-right"
+    />
   );
 }
 
-export default () => {
+export default ({ entries }) => {
   const [show, setShow] = useState(false);
-  const entries = [];
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -46,15 +49,7 @@ export default () => {
               <i className="fa fa-arrow-circle-left filemanager-up-arrow" />
               <i className="fa fa-arrow-circle-right filemanager-forward-arrow ml-5" />
               <i className="fa fa-trash filemanager-file-delete mr-5 pull-right" />
-              <CustomToggle eventKey="0">
-                <i
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#demo"
-                  id="create_new_folder_btn"
-                  className=" mr-5 fa fa-plus-circle pull-right"
-                />
-              </CustomToggle>
+              <CustomToggle eventKey="0" />
             </h4>
             <hr />
             <Accordion.Collapse eventKey="0">
