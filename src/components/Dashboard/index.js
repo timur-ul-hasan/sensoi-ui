@@ -20,6 +20,8 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import { File } from "./Menu";
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -943,16 +945,7 @@ class Dashboard extends Component {
                     <li>Window</li>
 
                     <li className="btn-group active">
-                      <Dropdown>
-                        <Dropdown.Toggle variant="white" id="dropdown-basic">
-                          <span>File </span>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                          <Dropdown.Item href="#/action-1">Open</Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">Open Recent</Dropdown.Item>
-                          <Dropdown.Item href="#/action-3">Close</Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <File />
                     </li>
                     <li className="btn-group active">
                       <Dropdown>
@@ -1010,18 +1003,14 @@ class Dashboard extends Component {
                       </Dropdown>
                     </li>
                     <li className="btn-group">
-                        <Dropdown>
+                      <Dropdown>
                         <Dropdown.Toggle variant="white" id="dropdown-basic">
                           <span>Insert</span>
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                           <Dropdown.Item href="#/action-1"> Comments</Dropdown.Item>
-                          <Dropdown.Item href="#/action-3">
-                            Pin Drop
-                          </Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">
-                            Reminder
-                          </Dropdown.Item>
+                          <Dropdown.Item href="#/action-3">Pin Drop</Dropdown.Item>
+                          <Dropdown.Item href="#/action-2">Reminder</Dropdown.Item>
                           <Dropdown.Item href="#/action-2"> Images (PNG)</Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
