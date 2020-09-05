@@ -69,23 +69,23 @@ export default () => {
             {entries.map(item =>
               item?.entry?.isFolder ? (
                 <li
-                  class="filemanager-item item-folder"
+                  className="filemanager-item item-folder"
                   data-type="folder"
                   data-id="{{item.entry.id}}"
                 >
-                  <i class="fa fa-folder-o">&nbsp;{item.entry.name}</i>
+                  <i className="fa fa-folder-o">&nbsp;{item.entry.name}</i>
                 </li>
               ) : (
                 <li
-                  class="filemanager-item item-file d-flex align-items-center"
+                  className="filemanager-item item-file d-flex align-items-center"
                   data-id="{{item.entry.id}}"
                 >
                   <input
                     type="checkbox"
                     id="del-check-{{item.entry.id}}"
-                    class="f-manager-del-check"
+                    className="f-manager-del-check"
                   />
-                  <i class="fa fa-file-o flex">&nbsp;{item.entry.name}</i>
+                  <i className="fa fa-file-o flex">&nbsp;{item.entry.name}</i>
                 </li>
               )
             )}

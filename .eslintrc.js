@@ -31,6 +31,7 @@ module.exports = {
     "jsx-a11y/label-has-associated-control": 0,
     "jsx-a11y/label-has-for": 0,
     "react/jsx-props-no-spreading": 1,
+    "no-confusing-arrow": 0,
     "no-console": "error",
     "@typescript-eslint/quotes": ["error", "double"],
     "object-curly-newline": [
