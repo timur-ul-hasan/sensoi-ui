@@ -16,6 +16,8 @@ import update from "../../assets/images/update-icon.svg";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addFavorite, addFile } from "../../routes/dashboard/actions";
+import Dropdown from "react-bootstrap/Dropdown";
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -886,6 +888,18 @@ class Dashboard extends Component {
                 <div className="table-scroll">
                   <ul className="drop-menu dashboard-menu navbar  navbar-toggleable-sm navbar-invers nopadding dashboard-header admin-dashboard container flex">
                     <li>Window</li>
+                    <Dropdown>
+                      <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        <img src={icon} className="d-inline" alt="icon" width="30" />
+                        <span>File </span>
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu>
+                        <Dropdown.Item href="#/action-1">Open</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">Open Recent</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">Close</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                     <li className="btn-group active">
                       <button
                         type="button"
