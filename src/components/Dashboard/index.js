@@ -20,7 +20,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { File } from "./Menu";
+import { File, Project } from "./Menu";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -948,16 +948,7 @@ class Dashboard extends Component {
                       <File />
                     </li>
                     <li className="btn-group active">
-                      <Dropdown>
-                        <Dropdown.Toggle variant="white" id="dropdown-basic">
-                          <span>Project </span>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                          <Dropdown.Item href="#/action-1">Open</Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">Create New</Dropdown.Item>
-                          <Dropdown.Item href="#/action-3">Close</Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <Project />
                     </li>
                     <li className="btn-group">
                       <Dropdown>
