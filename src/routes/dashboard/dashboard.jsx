@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Dashboard from "../../components/Dashboard";
-import { useEntries } from "./hooks";
+import { useEntries, useDashboard } from "./hooks";
 import { requestDashboard } from "./actions";
 
 export default () => {
