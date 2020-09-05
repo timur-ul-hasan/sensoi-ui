@@ -20,7 +20,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { File, Project } from "./Menu";
+import { File, Project, Ingest } from "./Menu";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -977,21 +977,7 @@ class Dashboard extends Component {
                       </Dropdown>
                     </li>
                     <li className="btn-group">
-                      <Dropdown>
-                        <Dropdown.Toggle variant="white" id="dropdown-basic">
-                          <span>Ingest</span>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                          <Dropdown.Item href="#/action-1"> Documents (PDF, TXT)</Dropdown.Item>
-                          <Dropdown.Item href="#/action-3">
-                            Structured Files (CSV, XLS)
-                          </Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">
-                            Scan Documents (PDF, JPEG)
-                          </Dropdown.Item>
-                          <Dropdown.Item href="#/action-2"> Images (PNG)</Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <Ingest />
                     </li>
                     <li className="btn-group">
                       <Dropdown>
