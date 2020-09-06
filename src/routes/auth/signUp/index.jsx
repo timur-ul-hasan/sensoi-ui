@@ -2,12 +2,11 @@ import React, { useState, useReducer } from "react";
 import styled from "styled-components";
 import { Formik, Field, Form } from "formik";
 import { useDispatch } from "react-redux";
-import { signUp } from "../actions";
-import signupReducer from "./reducer";
+import { signUpUser } from "../signIn/global_auth/actions";
+
 export default () => {
   const dispatch = useDispatch();
-  // const [state, dispatch] = useReducer(signupReducer);
-  // console.log(state, "form signup ");
+
   return (
     <div className="generic-body-login">
       <div className="modal" id="login">
@@ -22,12 +21,13 @@ export default () => {
                   password1: "",
                 }}
                 onSubmit={values => {
-                  dispatch(signUp(values));
+                  dispatch(signUpUser(values));
                 }}
               >
                 <Form>
                   <div className="form-group">
-                    <label htmlFor="lastName">Full Name</label><span class="asteriskField">*</span>
+                    <label htmlFor="lastName">Full Name</label>
+                    <span className="asteriskField">*</span>
                     <Field
                       type="text"
                       id="full_name"
@@ -39,7 +39,8 @@ export default () => {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="lastName">Email</label><span class="asteriskField">*</span>
+                    <label htmlFor="lastName">Email</label>
+                    <span className="asteriskField">*</span>
                     <Field
                       type="email"
                       id="email"
@@ -51,7 +52,8 @@ export default () => {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="lastName">Password</label><span class="asteriskField">*</span>
+                    <label htmlFor="lastName">Password</label>
+                    <span className="asteriskField">*</span>
                     <Field
                       id="password1"
                       type="password"
@@ -59,7 +61,9 @@ export default () => {
                       className="form-control"
                       placeholder="Password"
                     />
-                     <small id="hint_id_password1" class="form-text text-muted">The password must be between 6 and 8 characters</small>
+                    <small id="hint_id_password1" className="form-text text-muted">
+                      The password must be between 6 and 8 characters
+                    </small>
                   </div>
 
                   <div className="form-group">
@@ -72,29 +76,26 @@ export default () => {
                       placeholder="Password Confirmation"
                     />
                   </div>
-                     {/* Signup Footer */}
-                       <div class="form-check">
-                            <div class="form-group">
-                                <input type="checkbox" id="check" class="cagree" />
-                                <label for="check">I have accepted the Term and Conditions</label>
-
-                            </div>
-                        </div>
-                        <div class="btn-decoration"><span>Sign up</span></div>
-                        <button type="submit" class="btn btn-primary generic-btn">Sign up</button>
-                        <div class="sign-up-details">
-                            <a href="/login/" class="nav-link login-btn"> Login</a> <span> if you already have an account.</span>
-                        </div>
-
-                  {/* <div className="sign-up-details">
-                    <button
-                      type="submit"
-                      className="nav-link signup-btn btn btn-primary generic-btn"
-                    >
-                      Sign Up
-                    </button>
-                    {/* <span> if you don&apos;t have an account.</span> */}
-                  {/* </div> */} 
+                  {/* Signup Footer */}
+                  <div className="form-check">
+                    <div className="form-group">
+                      <input type="checkbox" id="check" className="cagree" />
+                      <label for="check">I have accepted the Term and Conditions</label>
+                    </div>
+                  </div>
+                  <div className="btn-decoration">
+                    <span>Sign up</span>
+                  </div>
+                  <button type="submit" className="btn btn-primary generic-btn">
+                    Sign up
+                  </button>
+                  <div className="sign-up-details">
+                    <a href="/login/" className="nav-link login-btn">
+                      {" "}
+                      Login
+                    </a>{" "}
+                    <span> if you already have an account.</span>
+                  </div>
                 </Form>
               </Formik>
             </div>

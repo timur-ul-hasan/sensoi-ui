@@ -17,17 +17,10 @@ export default (state = initialState, action) => {
     case ACTIONS.SIGN_UP_SUCCESS:
       return {
         ...state,
-        modules: [action.payload, ...state.modules],
+        isAuthenticated: true,
+        token: action.payload,
         loading: false,
       };
-
-    // case ACTIONS.SIGN_UP_SUCCESS:
-
-    // return {
-    //   ...state,
-    //   isAuthenticated: true,
-    //   token: action.payload,
-    // };
     case ACTIONS.LOG_OUT_REQUEST:
       return initialState;
     default:

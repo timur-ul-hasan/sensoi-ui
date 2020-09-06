@@ -12,6 +12,7 @@ import ErrorHandler from "../../../../util/errorHandler";
 import setAuthToken from "../../../../util/setAuthToken";
 // import ACTIONS from "./type/auth";
 import { baseURL } from "../../../../config";
+import { signUp } from "../../api";
 
 // export async function login(payload) {
 //   const response = await loginApi(payload);
@@ -74,7 +75,7 @@ export const welcomeMsg = name => dispatch => {
   dispatch({
     type: GET_ALERTS,
     payload: {
-      type: "success",
+      type: SIGN_UP_SUCCESS,
       msg: "Welcome! " + name,
     },
   });
@@ -94,4 +95,12 @@ export const logoutUser = history => dispatch => {
 
 export const refreshToken = currToken => dispatch => {
   // API call for refresh token
+};
+
+export const signUpUser = data => async dispatch => {
+  const response = await signUp(data);
+  dispatch({
+    type: SIGN_UP_SUCCESS,
+    payload: response.data,
+  });
 };

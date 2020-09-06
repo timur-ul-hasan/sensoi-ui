@@ -11,14 +11,10 @@ import { login as loginApi, signUp as signupApi } from "../api";
 import setAuthToken from "../../../util/setAuthToken";
 export async function login(payload) {
   const response = await loginApi(payload);
-  localStorage.setItem("clientSecret", "Bearer " + response.data.access);
-  console.log(response);
   return {
     type: ACTIONS.SIGN_IN_REQUEST,
     payload: response.data.access,
   };
-
-  // window.location.href = "/home";
 }
 export const setCurrentUser = decoded => {
   return {
@@ -33,7 +29,7 @@ export const logoutUser = () => ({
 export async function signUp(payload) {
   const response = await signupApi(payload);
   return {
-    type: ACTIONS.SIGN_UP_REQUEST,
+    type: ACTIONS.SIGN_UP_SUCCESS,
     payload: response.data,
   };
 }
