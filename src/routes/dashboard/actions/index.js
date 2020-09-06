@@ -52,7 +52,7 @@ export const createFolder = (parent_id, folder_name) => (dispatch, getState) => 
 export const newProject = project_name => (dispatch, getState) => {
   const token = getAccessToken(getState());
   (async () => {
-    const response = await newProjectApi({ token, project_name });
+    const response = await newProjectApi({ token, project_name, dispatch });
     dispatch(requestDashboard());
   })();
 };
