@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { useDispatch } from "react-redux";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
+import { newProject } from "../../../routes/dashboard/actions";
 
 export default () => {
   const [show, setShow] = useState(false);
@@ -33,6 +35,7 @@ const OpenProject = () => {
   const projects = [];
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -73,6 +76,8 @@ const NewProject = () => {
   const projects = [];
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [projectName, setProjectName] = useState("");
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -84,18 +89,25 @@ const NewProject = () => {
           <Modal.Title>New Project Name</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <ul className="d-flex flex-wrap file-list">
-            {projects.map(item => (
-              <li
-                className="filemanager-item item-folder"
-                data-type="folder"
-                data-name={item}
-                data-id={item}
-              >
-                <i className="fa fa-folder-o">&nbsp;{item}</i>
-              </li>
-            ))}
-          </ul>
+          <div id="demo" className="form-group">
+            <input
+              type="text"
+              id="input_folder_name"
+              placeholder="Folder Name"
+              value={projectName}
+              onChange={e => {
+                setProjectName(e.target.value);
+              }}
+            />
+            <button
+              id="btn_create_folder"
+              onClick={() => {
+                dispatch(newProject(projectName));
+              }}
+            >
+              Create
+            </button>
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary">Open</Button>

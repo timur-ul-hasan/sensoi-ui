@@ -3,7 +3,7 @@ import axios from "axios";
 import { baseURL } from "../../../config";
 import { node } from "prop-types";
 import ErrorHandler from "../../../utils/errorHandler";
-import { dashboard, createFolder as createFolderApi } from "../api";
+import { dashboard, createFolder as createFolderApi, newProject as newProjectApi } from "../api";
 import { getAccessToken } from "../../auth/selectors";
 
 import {
@@ -49,6 +49,14 @@ export const createFolder = (parent_id, folder_name) => (dispatch, getState) => 
   })();
 };
 
+export const newProject = project_name => (dispatch, getState) => {
+  const token = getAccessToken(getState());
+  (async () => {
+    const response = await newProjectApi({ token, project_name });
+    dispatch(requestDashboard());
+  })();
+};
+
 const DASHBOARD_URL = `${baseURL}/dashboard/`;
 
 export const addFavorite = id => dispatch => {
@@ -90,42 +98,6 @@ export const addFile = params => dispatch => {
       dispatch({
         type: ADD_FILE,
         payload: data,
-      });
-    })
-    .catch(err => {
-      const e = ErrorHandler(err);
-      if (e && e.length > 0) {
-        e.forEach(item => {
-          dispatch(item);
-        });
-      }
-    });
-};
-export const newProject = project_name => dispatch => {
-  dispatch({
-    type: CLEAR_ALERTS,
-  });
-  dispatch({
-    type: CLEAR_ERRORS,
-  });
-
-  const url = `${DASHBOARD_URL}api/new-project/` + project_name + "create";
-
-  axios
-    .post(url)
-    .then(res => {
-      const { data } = res.data;
-
-      dispatch({
-        type: NEW_PROJECT,
-        payload: data,
-      });
-      dispatch({
-        type: GET_ALERTS,
-        payload: {
-          type: "success",
-          msg: "Project   has been created successfully",
-        },
       });
     })
     .catch(err => {

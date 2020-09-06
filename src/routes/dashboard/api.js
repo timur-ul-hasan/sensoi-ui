@@ -38,8 +38,7 @@ export const copyIngested = async ({ token, projectName }) =>
 
 export const newProject = async ({ token, project_name }) =>
   await client(token)({
-    url: `${URL}api/new-project/project_name/create`,
-    data: {},
+    url: `${URL}/api/new-project/${project_name}/create`,
     method: methods.POST,
   });
 export const bottomPanel = async ({ token, node_id }) =>
