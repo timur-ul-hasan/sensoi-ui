@@ -2,11 +2,11 @@ import { node } from "prop-types";
 import client, { methods } from "../../api/axios";
 import { baseURL } from "../../config";
 
-const URL = `${baseURL}`;
+const URL = `${baseURL}/dashboard`;
 
 export const dashboard = async ({ token }) =>
   await client(token)({
-    url: `${URL}/dashboard`,
+    url: `${URL}`,
     method: methods.GET,
   });
 
@@ -51,20 +51,20 @@ export const bottomPanel = async ({ token, node_id }) =>
 
 export const createFolder = async ({ token, parent_id, folder_name }) =>
   await client(token)({
-    url: `${URL}create-folder/${parent_id}/${folder_name}`,
+    url: `${URL}/create-folder/${parent_id}/${folder_name}`,
     data: {},
     method: methods.POST,
   });
 export const favoriteList = async ({ token }) =>
   await client(token)({
-    url: `${URL}favorite_list/`,
+    url: `${URL}/favorite_list/`,
     data: {},
     method: methods.GET,
   });
 
 export const deleteFile = async ({ token }) =>
   await client(token)({
-    url: `${URL}file-manager/delete-files`,
+    url: `${URL}/file-manager/delete-files`,
     data: {
       data: node,
     },
@@ -73,7 +73,7 @@ export const deleteFile = async ({ token }) =>
 
 export const fileManager = async ({ token, parent_id }) =>
   await client(token)({
-    url: `${URL}file-manager/${parent_id}`,
+    url: `${URL}/file-manager/${parent_id}`,
     data: {
       parent_id,
     },
@@ -82,7 +82,7 @@ export const fileManager = async ({ token, parent_id }) =>
 
 export const mainTable = async ({ token, parent_id }) =>
   await client(token)({
-    url: `${URL}main-table/${parent_id}`,
+    url: `${URL}/main-table/${parent_id}`,
     data: {
       parent_id,
     },
@@ -91,41 +91,41 @@ export const mainTable = async ({ token, parent_id }) =>
 
 export const openFile = async ({ token }) =>
   await client(token)({
-    url: `${URL}open-file/`,
+    url: `${URL}/open-file/`,
     data: {},
     method: methods.POST,
   });
 
 export const openDashboard = async ({ token, id }) =>
   await client(token)({
-    url: `${URL}open/${id}`,
+    url: `${URL}/open/${id}`,
     data: {},
     method: methods.GET,
   });
 
 export const postRating = async ({ token, node_id, rating }) =>
   await client(token)({
-    url: `${URL}post-rating/${node_id}/${rating}`,
+    url: `${URL}/post-rating/${node_id}/${rating}`,
     data: {},
     method: methods.POST,
   });
 export const postTag = async ({ token, node_id, tag }) =>
   await client(token)({
-    url: `${URL}post-tag/${node_id}/${tag}`,
+    url: `${URL}/post-tag/${node_id}/${tag}`,
     data: {},
     method: methods.POST,
   });
 
 export const project = async ({ token, project_name }) =>
   await client(token)({
-    url: `${URL}project/${project_name}`,
+    url: `${URL}/project/${project_name}`,
     data: {},
     method: methods.GET,
   });
 
 export const renameFile = async ({ token, id }) =>
   await client(token)({
-    url: `${URL}rename-file/${id}`,
+    url: `${URL}/rename-file/${id}`,
     data: {},
     method: methods.GET,
   });

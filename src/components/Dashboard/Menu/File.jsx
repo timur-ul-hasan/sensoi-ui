@@ -3,7 +3,10 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
+import { useDispatch } from "react-redux";
 import { useAccordionToggle } from "react-bootstrap/AccordionToggle";
+import { useDashboard } from "../../../routes/dashboard/hooks";
+import { createFolder } from "../../../routes/dashboard/actions";
 
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionToggle(eventKey, () => console.log("totally custom!"));
@@ -24,6 +27,10 @@ export default ({ entries }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const dashboard = useDashboard();
+  const folderId = dashboard?.folder_id;
+  const [folderName, setFolderName] = useState("");
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -54,8 +61,23 @@ export default ({ entries }) => {
             <hr />
             <Accordion.Collapse eventKey="0">
               <div id="demo" className="form-group">
-                <input type="text" id="input_folder_name" placeholder="Folder Name" />
-                <button id="btn_create_folder">Create</button>
+                <input
+                  type="text"
+                  id="input_folder_name"
+                  placeholder="Folder Name"
+                  value={folderName}
+                  onChange={e => {
+                    setFolderName(e.target.value);
+                  }}
+                />
+                <button
+                  id="btn_create_folder"
+                  onClick={() => {
+                    dispatch(createFolder(folderId, folderName));
+                  }}
+                >
+                  Create
+                </button>
               </div>
             </Accordion.Collapse>
           </Accordion>

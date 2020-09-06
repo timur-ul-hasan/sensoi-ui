@@ -3,7 +3,7 @@ import axios from "axios";
 import { baseURL } from "../../../config";
 import { node } from "prop-types";
 import ErrorHandler from "../../../utils/errorHandler";
-import { dashboard } from "../api";
+import { dashboard, createFolder as createFolderApi } from "../api";
 import { getAccessToken } from "../../auth/selectors";
 
 import {
@@ -38,6 +38,14 @@ export const requestDashboard = () => (dispatch, getState) => {
   (async () => {
     const response = await dashboard({ token });
     dispatch(dashboardSuccess(response.data));
+  })();
+};
+
+export const createFolder = (parent_id, folder_name) => (dispatch, getState) => {
+  const token = getAccessToken(getState());
+  (async () => {
+    const response = await createFolderApi({ token, parent_id, folder_name });
+    dispatch(requestDashboard());
   })();
 };
 
