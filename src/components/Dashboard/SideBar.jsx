@@ -14,7 +14,7 @@ export default () => {
             <ul className="nav nav-tabs">
               <Tabs defaultActiveKey="File" transition={false} id="noanim-tab-example">
                 <Tab eventKey="File" title="Filter">
-                  <div className="tab-content">
+                  <TabContent>
                     <div id="home" className="tab-pane fade in active">
                       <p>File Type</p>
                       <ul className="select-type">
@@ -49,7 +49,7 @@ export default () => {
                         Statistics
                       </button>
                     </div>
-                  </div>
+                  </TabContent>
                 </Tab>
                 <Tab eventKey="Filter" title="Report">
                   <div id="analyze" className="tab-pane fade">
