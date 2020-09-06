@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Tabs from "react-bootstrap/Tabs";
+import TabContent from "react-bootstrap/TabContent";
+import Tab from "react-bootstrap/Tab";
+import Modal from "react-bootstrap/Modal";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
 import { File, Project, Ingest } from "./Menu";
 import view from "../../assets/images/admin-icon1.svg";
 import recentlyadd from "../../assets/images/admin-icon2.svg";
@@ -17,69 +24,17 @@ import print from "../../assets/images/print-icon.svg";
 import inser from "../../assets/images/insert-icon.svg";
 import edit from "../../assets/images/edit-icon.svg";
 import update from "../../assets/images/update-icon.svg";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+
 import { addFavorite, addFile } from "../../routes/dashboard/actions";
-import Tabs from "react-bootstrap/Tabs";
-import TabContent from "react-bootstrap/TabContent";
-import Tab from "react-bootstrap/Tab";
-import Modal from "react-bootstrap/Modal";
+
 import SideBar from "./SideBar";
+import Navigation from "./Nav";
 
 export default ({ entries }) => {
   return (
     <div id="wrapper">
       <div className="admin-panel">
-        <nav className="navbar  navbar-toggleable-sm navbar-invers nopadding dashboard-header admin-dashboard container">
-          <button
-            className="navbar-toggler navbar-toggler-right"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapsingNavbar"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="dashboard-header admin-dashboard admin-dashboard container">
-            <div className="row">
-              <div className="col-lg-12 col-md-12 dashboard-top-left">
-                <div className="display-icon">
-                  <a href="/dashboard/" className="icon-div">
-                    <img src={view} type="image" className="d-inline" alt="icon" width="20" />{" "}
-                    <span>View</span>
-                  </a>
-
-                  <a href="/dashboard/?sorted=True" className="icon-div">
-                    <img src={recentlyadd} type="image " className="d-inline" alt="icon" />
-                    <span>Recently Added</span>
-                  </a>
-                  <a href="/dashboard/favorite_list/" className="icon-div">
-                    <img src={favourit} type="" className="d-inline" alt="icon" />{" "}
-                    <span>Favorites</span>
-                  </a>
-                  <a href="#" className="icon-div">
-                    <img src={trash} className="d-inline" alt="icon" width="17" />
-                    <span>Trash</span>
-                  </a>
-                  <a href="#" className="icon-div analyze-tab">
-                    <img src={admin} className="d-inline" alt="icon" width="31" />
-                    <span>Admin</span>
-                  </a>
-                  <form method="POST">
-                    <div className="search">
-                      <input
-                        type="hidden"
-                        name="csrfmiddlewaretoken"
-                        value="h0LEcEX5aKcp6PV2RnCIdzVdtEcQigX2cUK9oWZ8l9JPh0PmsAqE8s0KO1fvqeHf"
-                      />
-                      <input type="text" name="search" value="" placeholder="Search for a file" />
-                      <i className="fa fa-search"></i>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
+        <Navigation />
         <div className="admin-dashboard container" id="main">
           <div className="row row-offcanvas row-offcanvas-left">
             <SideBar />

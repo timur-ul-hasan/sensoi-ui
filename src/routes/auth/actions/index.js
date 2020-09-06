@@ -8,7 +8,7 @@
 
 import ACTIONS from "./type/auth";
 import { login as loginApi, signUp as signupApi } from "../api";
- import setAuthToken from "../../../util/setAuthToken";
+import setAuthToken from "../../../util/setAuthToken";
 export async function login(payload) {
   const response = await loginApi(payload);
   localStorage.setItem("clientSecret", "Bearer " + response.data.access);
@@ -16,9 +16,8 @@ export async function login(payload) {
   return {
     type: ACTIONS.SIGN_IN_REQUEST,
     payload: response.data.access,
-    
   };
-  
+
   // window.location.href = "/home";
 }
 export const setCurrentUser = decoded => {
@@ -27,20 +26,12 @@ export const setCurrentUser = decoded => {
     payload: decoded,
   };
 };
-export const logoutUser = history => dispatch => {
-  // Remove token from localStorage
-  localStorage.removeItem("clientMenu");
-  localStorage.removeItem("clientSecret");
-  // Remove auth header for future requests
-  setAuthToken(false);
-  // Set current user to {} which will set isAuthenticated to false
-  dispatch(setCurrentUser({}));
-  window.location.href = "/login";
-};
+export const logoutUser = () => ({
+  type: ACTIONS.LOG_OUT_REQUEST,
+});
+
 export async function signUp(payload) {
   const response = await signupApi(payload);
-  localStorage.setItem("client", response.data);
-  console.log(response);
   return {
     type: ACTIONS.SIGN_UP_REQUEST,
     payload: response.data,
