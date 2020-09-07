@@ -28,20 +28,18 @@ class Login extends Component {
       email: this.state.email.toString(),
       password: this.state.password.toString(),
     };
-    
-   const { haserror, errors } = validateLogin(data);
-  //  if (haserror,errors) {
-  //     this.setState({ errors });
-  //     return;
-  //     } 
-  //     else {
-  //  this.setState(initialState);
-  //  this.props.loginUser(data);
-  //     }
- this.props.loginUser(data);
-     console.log(data);
-     
-    
+
+    const { haserror, errors } = validateLogin(data);
+    //  if (haserror,errors) {
+    //     this.setState({ errors });
+    //     return;
+    //     }
+    //     else {
+    //  this.setState(initialState);
+    //  this.props.loginUser(data);
+    //     }
+    this.props.loginUser(data);
+    console.log(data);
   };
 
   // componentDidMount() {
@@ -124,11 +122,12 @@ class Login extends Component {
                     Login
                   </button>
                   <div class="sign-up-details">
-                    <a href="/signup/" class="nav-link signup-btn">
-                      {" "}
-                      Sign Up
-                    </a>{" "}
-                    <span> if you don't have an account.</span>
+                    <span>
+                      <a href="/signup/" class="signup-btn">
+                        Sign Up,
+                      </a>
+                      &nbsp; if you don't have an account.
+                    </span>
                     {this.state.alert && this.state.alert.msg && (
                       <Alert color={this.state.alert.type}>{this.state.alert.msg}</Alert>
                     )}

@@ -90,11 +90,12 @@ export default () => {
                     Sign up
                   </button>
                   <div className="sign-up-details">
-                    <a href="/login/" className="nav-link login-btn">
-                      {" "}
-                      Login
-                    </a>{" "}
-                    <span> if you already have an account.</span>
+                    <p>
+                      <a href="/login/" className="login-btn">
+                        Login,
+                      </a>
+                      <span>&nbsp; if you already have an account.</span>
+                    </p>
                   </div>
                 </Form>
               </Formik>

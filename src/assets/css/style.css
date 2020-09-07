@@ -1402,9 +1402,10 @@ aside .nav-tabs li {
 }
 .sign-up-details {
   position: relative;
-  width: 75%;
   margin: 0 auto;
   top: 25px;
+  display: flex;
+  justify-content: center;
 }
 .btn-primary:hover {
   border-color: #fff;
@@ -1415,12 +1416,9 @@ aside .nav-tabs li {
   color: #d7dbe6;
 }
 .sign-up-details span {
-  position: absolute;
-  right: 0;
   letter-spacing: 0.72px;
   font-family: "SegoeUI-Semibold";
   color: #d7dbe6;
-  top: 10px;
   font-size: 18px;
   opacity: 0.5;
 }
