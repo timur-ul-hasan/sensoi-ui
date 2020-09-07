@@ -19,15 +19,22 @@ export const addFavorite = async ({ token, id }) =>
 
 export const addFile = async ({ token, file, user, nodeId }) => {
   const formData = new FormData();
-  formData.append("up_file", file);
-  formData.append("user", user);
+  formData.append("up_file", file.File);
+  formData.append("user", 1);
   formData.append("node_id", nodeId);
-
+  
+  console.log(file);
   return await client(token)({
-    url: `${URL}add-file`,
+    url: `${URL}/add-file`,
     method: methods.POST,
     data: formData,
-  });
+    headers: {
+      "Content-type": "multipart/form-data",
+      
+    },
+  }
+  );
+ 
 };
 export const copyIngested = async ({ token, projectName }) =>
   await client(token)({

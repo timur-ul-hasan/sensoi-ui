@@ -3,7 +3,12 @@ import axios from "axios";
 import { baseURL } from "../../../config";
 import { node } from "prop-types";
 import ErrorHandler from "../../../utils/errorHandler";
-import { dashboard, createFolder as createFolderApi, newProject as newProjectApi } from "../api";
+import {
+  dashboard,
+  createFolder as createFolderApi,
+  addFile as addFileApi,
+  newProject as newProjectApi,
+} from "../api";
 import { getAccessToken } from "../../auth/selectors";
 
 import {
@@ -56,7 +61,14 @@ export const newProject = project_name => (dispatch, getState) => {
     dispatch(requestDashboard());
   })();
 };
-
+export const addFile = file => (dispatch, getState) => {
+  const token = getAccessToken(getState());
+  (async () => {
+    console.log(file);
+    const response = await addFileApi({ token, file, dispatch });
+    dispatch(requestDashboard());
+  })();
+};
 const DASHBOARD_URL = `${baseURL}/dashboard/`;
 
 export const addFavorite = id => dispatch => {
@@ -84,7 +96,7 @@ export const addFavorite = id => dispatch => {
       }
     });
 };
-export const addFile = params => dispatch => {
+export const addFiles = params => dispatch => {
   dispatch({
     type: CLEAR_ALERTS,
   });
