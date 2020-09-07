@@ -36,7 +36,7 @@ export default (state = initialState, action) => {
     case ADD_FILE:
       return {
         ...state,
-        file_list: action.payload,
+        formData: action.payload,
         loading: true,
       };
     case ADD_FAVORITE:

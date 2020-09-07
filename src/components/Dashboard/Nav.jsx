@@ -5,6 +5,7 @@ import recentlyadd from "../../assets/images/admin-icon2.svg";
 import favourit from "../../assets/images/admin-icon3.svg";
 import trash from "../../assets/images/admin-icon4.svg";
 import admin from "../../assets/images/analyze.svg";
+// import logout from "../../assets/images/lo"
 import { logoutUser } from "../../routes/auth/actions";
 import Button from "react-bootstrap/Button";
 
