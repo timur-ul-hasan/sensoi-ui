@@ -112,9 +112,10 @@ export default () => {
                       <div className="list-group panel">
                         <Taxonomy />
                       </div>
-                      {/* <div>
+                       {/* <div  className="new_content">
+
                         <Dashboard />
-                      </div> */}
+                      </div>  */}
                     </div>
                   </div>
                 </Tab>

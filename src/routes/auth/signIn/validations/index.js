@@ -1,4 +1,5 @@
-import validator from 'validator';
+import validator from "validator";
+import isEmpty from "../../../../util/isEmpty";
 const validateLogin = data => {
   console.log(data);
   let errors = {};
@@ -13,7 +14,7 @@ const validateLogin = data => {
   }
 
   const feedback = {
-    haserror: errors,
+    haserror: !isEmpty(errors),
     errors,
   };
   return feedback;

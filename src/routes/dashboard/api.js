@@ -19,7 +19,7 @@ export const addFavorite = async ({ token, id }) =>
 
 export const addFile = async ({ token, file, user, nodeId,dispatch}) => {
   const formData = new FormData();
-  formData.append("up_file", file.File);
+  formData.append("up_file", file.file);
   formData.append("user", 1);
   formData.append("node_id", nodeId);
   
@@ -29,7 +29,6 @@ export const addFile = async ({ token, file, user, nodeId,dispatch}) => {
     method: methods.POST,
     headers: {
       "Content-type": "multipart/form-data",
-      
     },
     data: formData,
   }
