@@ -17,21 +17,21 @@ export const addFavorite = async ({ token, id }) =>
     method: methods.POST,
   });
 
-export const addFile = async ({ token, file, user, nodeId }) => {
+export const addFile = async ({ token, file, user, nodeId,dispatch}) => {
   const formData = new FormData();
   formData.append("up_file", file.File);
   formData.append("user", 1);
   formData.append("node_id", nodeId);
   
   console.log(file);
-  return await client(token)({
+  return await client(token, dispatch )({
     url: `${URL}/add-file`,
     method: methods.POST,
-    data: formData,
     headers: {
       "Content-type": "multipart/form-data",
       
     },
+    data: formData,
   }
   );
  

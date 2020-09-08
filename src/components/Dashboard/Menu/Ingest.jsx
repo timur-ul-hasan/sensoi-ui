@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { addFile } from "../../../routes/dashboard/actions";
 export default () => {
   const [value, setDocumentValue] = useState("");
-  const [file, setFile]= useState("");
+  const [file, setFile] = useState("");
   const [show, setShow] = useState(false);
   const Ingest = [];
   const handleClose = () => setShow(false);
@@ -21,9 +21,9 @@ export default () => {
     setDocumentValue(e.target.name);
   };
   const upload = e => {
-    const [ file ] = e.target.files[0];
+    const [file] = e.target.files[0];
     setFile(file);
-}
+  };
 
   return (
     <>
@@ -56,16 +56,17 @@ export default () => {
           <Modal.Title>Add File</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form enctype="multipart/form-data">
+          <Form>
             <Form.Group>
               <Form.File
                 id="exampleFormControlFile1"
                 type="file"
                 name="file"
+                // enctype="multipart/form-data"
                 onChange={e => {
-                  setFile({file:e.target.files[0]})
+                  setFile({ file: e.target.files[0] });
                 }}
-                label="Example file input"
+                label="File"
               />
             </Form.Group>
             <Button

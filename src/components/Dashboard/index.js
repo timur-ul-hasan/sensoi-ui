@@ -8,7 +8,7 @@ import Tab from "react-bootstrap/Tab";
 import Modal from "react-bootstrap/Modal";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-
+import image from "../../assets/images/dashboard-item.svg";
 import { File, Project, Ingest } from "./Menu";
 import view from "../../assets/images/admin-icon1.svg";
 import recentlyadd from "../../assets/images/admin-icon2.svg";
@@ -75,7 +75,7 @@ export default ({ entries }) => {
                     </Dropdown>
                   </li>
                   <li className="btn-group">
-                    <Ingest/>
+                    <Ingest />
                   </li>
                   <li className="btn-group">
                     <Dropdown>
@@ -225,12 +225,7 @@ export default ({ entries }) => {
                 </div>
                 <div>
                   <div className="new_content">
-                    <img
-                      src="/static/images/dashboard-item.svg"
-                      className="d-inline"
-                      alt="icon"
-                      width=""
-                    />
+                    <img src={image} className="d-inline" alt="icon" width="30" />
                     <div className="color-type">
                       <div>
                         <span className="red"></span>
@@ -305,7 +300,6 @@ export default ({ entries }) => {
         </div>
       </div>
       {/* </div> */}
-     
     </div>
   );
 };

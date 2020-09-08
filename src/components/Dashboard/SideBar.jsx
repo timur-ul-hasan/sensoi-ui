@@ -13,7 +13,7 @@ export default () => {
           <Col>
             <ul className="nav nav-tabs">
               <Tabs defaultActiveKey="File" transition={false} id="noanim-tab-example">
-                <Tab eventKey="File" title="Filter">
+                <Tab eventKey="File" title="Filter" className="row1">
                   <TabContent>
                     <div id="home" className="tab-pane fade in active">
                       <p>File Type</p>
@@ -168,7 +168,7 @@ export default () => {
                     </div>
                   </div>
                 </Tab>
-                <Tab eventKey="analyze" title="Analyze">
+                <Tab eventKey="analyze" title="Analyze" className="analyze-list">
                   <div id="analyze" className="tab-pane fade">
                     <div id="MainMenu1">
                       <div className="list-group panel">
